@@ -1,0 +1,32 @@
+defmodule MaquinaLv do
+  @moduledoc """
+  LiveView function components inspired by shadcn/ui.
+
+  ## Usage
+
+  Add `use MaquinaLv` to your Phoenix component module to import all components:
+
+      defmodule MyAppWeb do
+        def html_helpers do
+          quote do
+            use MaquinaLv
+            # ...
+          end
+        end
+      end
+
+  Then use dot-syntax in your templates:
+
+      <.card>
+        <.card_header>
+          <.card_title text="Hello" />
+        </.card_header>
+      </.card>
+  """
+
+  defmacro __using__(_opts) do
+    quote do
+      # Components will be imported here as they are built
+    end
+  end
+end
