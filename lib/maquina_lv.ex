@@ -28,14 +28,17 @@ defmodule MaquinaLv do
     quote do
       import MaquinaLv.Alert
       import MaquinaLv.Badge
+      import MaquinaLv.Breadcrumbs
       import MaquinaLv.Card
       import MaquinaLv.Empty
       import MaquinaLv.Form
       import MaquinaLv.Header
       import MaquinaLv.Icon
+      import MaquinaLv.Pagination
       import MaquinaLv.Separator
       import MaquinaLv.Stats
       import MaquinaLv.Table
+      import MaquinaLv.ToggleGroup
     end
   end
 end
