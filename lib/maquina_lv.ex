@@ -27,6 +27,7 @@ defmodule MaquinaLv do
   defmacro __using__(_opts) do
     quote do
       import MaquinaLv.Card
+      import MaquinaLv.Icon
     end
   end
 end
