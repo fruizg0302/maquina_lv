@@ -29,9 +29,12 @@ defmodule MaquinaLv do
       import MaquinaLv.Alert
       import MaquinaLv.Badge
       import MaquinaLv.Card
+      import MaquinaLv.Empty
+      import MaquinaLv.Form
       import MaquinaLv.Header
       import MaquinaLv.Icon
       import MaquinaLv.Separator
+      import MaquinaLv.Stats
       import MaquinaLv.Table
     end
   end
