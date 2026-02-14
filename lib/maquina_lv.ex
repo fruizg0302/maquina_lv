@@ -26,7 +26,7 @@ defmodule MaquinaLv do
 
   defmacro __using__(_opts) do
     quote do
-      # Components will be imported here as they are built
+      import MaquinaLv.Card
     end
   end
 end
