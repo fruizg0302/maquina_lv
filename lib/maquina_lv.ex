@@ -26,8 +26,13 @@ defmodule MaquinaLv do
 
   defmacro __using__(_opts) do
     quote do
+      import MaquinaLv.Alert
+      import MaquinaLv.Badge
       import MaquinaLv.Card
+      import MaquinaLv.Header
       import MaquinaLv.Icon
+      import MaquinaLv.Separator
+      import MaquinaLv.Table
     end
   end
 end
