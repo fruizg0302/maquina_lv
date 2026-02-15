@@ -1,4 +1,4 @@
-# MaquinaLv
+# Maquina LV
 
 [![Hex.pm](https://img.shields.io/hexpm/v/maquina_lv.svg)](https://hex.pm/packages/maquina_lv)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
@@ -26,7 +26,7 @@ mix maquina_lv.install
 
 This will:
 
-1. Add the MaquinaLv CSS import and `@source` directive to your `assets/css/app.css`
+1. Add the Maquina LV CSS import and `@source` directive to your `assets/css/app.css`
 2. Append theme variables (shadcn/ui convention) to your CSS
 3. Add JS hooks import to your `assets/js/app.js`
 

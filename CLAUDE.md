@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-MaquinaLv is a component library for Phoenix LiveView, ported from [maquina_components](https://github.com/maquina-app/maquina_components) (a Rails UI library built with ERB partials and Stimulus). Both projects are inspired by shadcn/ui. MaquinaLv provides reusable UI components styled with TailwindCSS 4.0 using data-attribute CSS selectors and CSS variables for theming.
+Maquina LV is a component library for Phoenix LiveView, ported from [maquina_components](https://github.com/maquina-app/maquina_components) (a Rails UI library built with ERB partials and Stimulus). Both projects are inspired by shadcn/ui. Maquina LV provides reusable UI components styled with TailwindCSS 4.0 using data-attribute CSS selectors and CSS variables for theming.
 
 ## Common Commands
 

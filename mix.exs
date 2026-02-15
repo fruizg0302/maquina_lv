@@ -14,7 +14,7 @@ defmodule MaquinaLv.MixProject do
       description: description(),
       package: package(),
       source_url: @source_url,
-      name: "MaquinaLv",
+      name: "Maquina LV",
       docs: docs()
     ]
   end

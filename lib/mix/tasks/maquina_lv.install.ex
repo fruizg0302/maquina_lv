@@ -1,14 +1,14 @@
 defmodule Mix.Tasks.MaquinaLv.Install do
-  @shortdoc "Installs MaquinaLv into your Phoenix project"
+  @shortdoc "Installs Maquina LV into your Phoenix project"
 
   @moduledoc """
-  Installs MaquinaLv into your Phoenix project.
+  Installs Maquina LV into your Phoenix project.
 
       $ mix maquina_lv.install
 
   This will:
 
-    1. Add the MaquinaLv CSS import and `@source` directive to your `assets/css/app.css`
+    1. Add the Maquina LV CSS import and `@source` directive to your `assets/css/app.css`
     2. Append theme variables (shadcn/ui convention) to your CSS
     3. Add JS hooks import to your `assets/js/app.js`
 
@@ -119,7 +119,7 @@ defmodule Mix.Tasks.MaquinaLv.Install do
 
   defp print_instructions do
     Mix.shell().info("")
-    Mix.shell().info("MaquinaLv installed successfully!")
+    Mix.shell().info("Maquina LV installed successfully!")
     Mix.shell().info("")
     Mix.shell().info("Next steps:")
     Mix.shell().info("")
