@@ -3,7 +3,7 @@
 [![Hex.pm](https://img.shields.io/hexpm/v/maquina_lv.svg)](https://hex.pm/packages/maquina_lv)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-LiveView function components inspired by [shadcn/ui](https://ui.shadcn.com). TailwindCSS 4.0, data-attribute CSS, JS hooks.
+LiveView function components ported from [maquina_components](https://github.com/maquina-app/maquina_components) (a Rails UI library inspired by [shadcn/ui](https://ui.shadcn.com)). TailwindCSS 4.0, data-attribute CSS, JS hooks.
 
 ## Installation
 

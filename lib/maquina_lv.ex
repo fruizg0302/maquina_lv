@@ -1,6 +1,8 @@
 defmodule MaquinaLv do
   @moduledoc """
-  LiveView function components inspired by shadcn/ui.
+  LiveView function components ported from
+  [maquina_components](https://github.com/maquina-app/maquina_components) (Rails),
+  inspired by shadcn/ui.
 
   ## Usage
 

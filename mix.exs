@@ -26,14 +26,17 @@ defmodule MaquinaLv.MixProject do
   end
 
   defp description do
-    "LiveView function components inspired by shadcn/ui. TailwindCSS 4.0, data-attribute CSS, JS hooks."
+    "LiveView function components ported from maquina_components (Rails). Inspired by shadcn/ui. TailwindCSS 4.0, data-attribute CSS, JS hooks."
   end
 
   defp package do
     [
-      maintainers: ["Mario Alberto Chávez"],
+      maintainers: ["Fernando Ruiz Guzmán"],
       licenses: ["MIT"],
-      links: %{"GitHub" => @source_url},
+      links: %{
+        "GitHub" => @source_url,
+        "Ported from" => "https://github.com/maquina-app/maquina_components"
+      },
       files: ~w(lib assets .formatter.exs mix.exs README.md LICENSE.md CHANGELOG.md)
     ]
   end
