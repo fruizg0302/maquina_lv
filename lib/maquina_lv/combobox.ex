@@ -45,13 +45,13 @@ defmodule MaquinaLv.Combobox do
 
     * `inner_block` (required) - Trigger and content.
   """
-  attr :name, :string, default: nil
-  attr :value, :string, default: nil
-  attr :placeholder, :string, default: "Select..."
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:name, :string, default: nil)
+  attr(:value, :string, default: nil)
+  attr(:placeholder, :string, default: "Select...")
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def combobox(assigns) do
     assigns =
@@ -86,10 +86,10 @@ defmodule MaquinaLv.Combobox do
     * `placeholder` - Placeholder text shown when no value selected.
     * `class` - Additional CSS classes.
   """
-  attr :for_id, :string, required: true
-  attr :placeholder, :string, default: "Select..."
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:for_id, :string, required: true)
+  attr(:placeholder, :string, default: "Select...")
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
   def combobox_trigger(assigns) do
     ~H"""
@@ -127,13 +127,13 @@ defmodule MaquinaLv.Combobox do
 
     * `inner_block` (required) - Input, list, empty state.
   """
-  attr :id, :string, required: true
-  attr :align, :atom, default: :start, values: [:start, :center, :end]
-  attr :width, :atom, default: :default, values: [:default, :sm, :md, :lg, :full]
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:id, :string, required: true)
+  attr(:align, :atom, default: :start, values: [:start, :center, :end])
+  attr(:width, :atom, default: :default, values: [:default, :sm, :md, :lg, :full])
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def combobox_content(assigns) do
     ~H"""
@@ -162,9 +162,9 @@ defmodule MaquinaLv.Combobox do
     * `placeholder` - Input placeholder text.
     * `class` - Additional CSS classes.
   """
-  attr :placeholder, :string, default: "Search..."
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:placeholder, :string, default: "Search...")
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
   def combobox_input(assigns) do
     ~H"""
@@ -193,10 +193,10 @@ defmodule MaquinaLv.Combobox do
 
     * `inner_block` (required) - Options, groups, labels.
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def combobox_list(assigns) do
     ~H"""
@@ -222,13 +222,13 @@ defmodule MaquinaLv.Combobox do
 
     * `inner_block` (required) - Option label content.
   """
-  attr :value, :string, required: true
-  attr :selected, :boolean, default: false
-  attr :disabled, :boolean, default: false
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:value, :string, required: true)
+  attr(:selected, :boolean, default: false)
+  attr(:disabled, :boolean, default: false)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def combobox_option(assigns) do
     ~H"""
@@ -260,9 +260,9 @@ defmodule MaquinaLv.Combobox do
 
     * `text` - The message to display.
   """
-  attr :text, :string, default: "No results found."
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:text, :string, default: "No results found.")
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
   def combobox_empty(assigns) do
     ~H"""
@@ -281,10 +281,10 @@ defmodule MaquinaLv.Combobox do
 
     * `inner_block` (required) - Options and labels.
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def combobox_group(assigns) do
     ~H"""
@@ -307,11 +307,11 @@ defmodule MaquinaLv.Combobox do
 
     * `inner_block` - Custom label content.
   """
-  attr :text, :string, default: nil
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:text, :string, default: nil)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block
+  slot(:inner_block)
 
   def combobox_label(assigns) do
     ~H"""
@@ -326,8 +326,8 @@ defmodule MaquinaLv.Combobox do
   @doc """
   Renders a visual separator between groups.
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
   def combobox_separator(assigns) do
     ~H"""
@@ -350,14 +350,14 @@ defmodule MaquinaLv.Combobox do
     * `name` - Form field name.
     * `class` - Additional CSS classes.
   """
-  attr :options, :list, required: true
-  attr :placeholder, :string, default: "Select..."
-  attr :search_placeholder, :string, default: "Search..."
-  attr :empty_text, :string, default: "No results found."
-  attr :value, :string, default: nil
-  attr :name, :string, default: nil
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:options, :list, required: true)
+  attr(:placeholder, :string, default: "Select...")
+  attr(:search_placeholder, :string, default: "Search...")
+  attr(:empty_text, :string, default: "No results found.")
+  attr(:value, :string, default: nil)
+  attr(:name, :string, default: nil)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
   def combobox_simple(assigns) do
     assigns =

@@ -63,13 +63,13 @@ defmodule MaquinaLv.Table do
 
     * `inner_block` (required) - The table content (header, body, footer, caption).
   """
-  attr :container, :boolean, default: true
-  attr :variant, :string, default: nil
-  attr :table_variant, :string, default: nil
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:container, :boolean, default: true)
+  attr(:variant, :string, default: nil)
+  attr(:table_variant, :string, default: nil)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def table(assigns) do
     ~H"""
@@ -98,11 +98,11 @@ defmodule MaquinaLv.Table do
 
     * `inner_block` (required) - The header rows.
   """
-  attr :sticky, :boolean, default: false
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:sticky, :boolean, default: false)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def table_header(assigns) do
     ~H"""
@@ -124,10 +124,10 @@ defmodule MaquinaLv.Table do
 
     * `inner_block` (required) - The body rows.
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def table_body(assigns) do
     ~H"""
@@ -151,11 +151,11 @@ defmodule MaquinaLv.Table do
 
     * `inner_block` (required) - The row cells.
   """
-  attr :selected, :boolean, default: false
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:selected, :boolean, default: false)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def table_row(assigns) do
     ~H"""
@@ -178,11 +178,11 @@ defmodule MaquinaLv.Table do
 
     * `inner_block` (required) - The head cell content.
   """
-  attr :scope, :string, default: "col"
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:scope, :string, default: "col")
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def table_head(assigns) do
     ~H"""
@@ -204,10 +204,10 @@ defmodule MaquinaLv.Table do
 
     * `inner_block` (required) - The cell content.
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def table_cell(assigns) do
     ~H"""
@@ -229,10 +229,10 @@ defmodule MaquinaLv.Table do
 
     * `inner_block` (required) - The footer rows.
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def table_footer(assigns) do
     ~H"""
@@ -254,10 +254,10 @@ defmodule MaquinaLv.Table do
 
     * `inner_block` (required) - The caption content.
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def table_caption(assigns) do
     ~H"""

@@ -40,12 +40,12 @@ defmodule MaquinaLv.Empty do
 
     * `inner_block` (required) - The empty state content.
   """
-  attr :variant, :atom, default: :default, values: [:default, :outline]
-  attr :size, :atom, default: :default, values: [:default, :compact]
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:variant, :atom, default: :default, values: [:default, :outline])
+  attr(:size, :atom, default: :default, values: [:default, :compact])
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def empty(assigns) do
     ~H"""
@@ -73,10 +73,10 @@ defmodule MaquinaLv.Empty do
 
     * `inner_block` (required) - Header content (media, title, description).
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def empty_header(assigns) do
     ~H"""
@@ -100,12 +100,12 @@ defmodule MaquinaLv.Empty do
 
     * `inner_block` (optional) - Custom media content (e.g., an image).
   """
-  attr :icon, :atom, default: nil
-  attr :variant, :atom, default: :icon, values: [:icon, :avatar]
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:icon, :atom, default: nil)
+  attr(:variant, :atom, default: :icon, values: [:icon, :avatar])
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block
+  slot(:inner_block)
 
   def empty_media(assigns) do
     ~H"""
@@ -132,11 +132,11 @@ defmodule MaquinaLv.Empty do
 
     * `inner_block` (optional) - Takes priority over `text` attribute.
   """
-  attr :text, :string, default: nil
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:text, :string, default: nil)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block
+  slot(:inner_block)
 
   def empty_title(assigns) do
     ~H"""
@@ -159,11 +159,11 @@ defmodule MaquinaLv.Empty do
 
     * `inner_block` (optional) - Takes priority over `text` attribute.
   """
-  attr :text, :string, default: nil
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:text, :string, default: nil)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block
+  slot(:inner_block)
 
   def empty_description(assigns) do
     ~H"""
@@ -185,10 +185,10 @@ defmodule MaquinaLv.Empty do
 
     * `inner_block` (required) - Action content (buttons, links).
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def empty_content(assigns) do
     ~H"""
@@ -207,9 +207,9 @@ defmodule MaquinaLv.Empty do
     * `reset_path` - Path for the "Clear search" link.
     * `size` - Size variant: `:default` or `:compact`.
   """
-  attr :query, :string, default: nil
-  attr :reset_path, :string, default: nil
-  attr :size, :atom, default: :default, values: [:default, :compact]
+  attr(:query, :string, default: nil)
+  attr(:reset_path, :string, default: nil)
+  attr(:size, :atom, default: :default, values: [:default, :compact])
 
   def empty_search_state(assigns) do
     description =
@@ -249,10 +249,10 @@ defmodule MaquinaLv.Empty do
     * `icon` - Icon name atom. Defaults to `:folder_open`.
     * `size` - Size variant: `:default` or `:compact`.
   """
-  attr :resource_name, :string, required: true
-  attr :new_path, :string, default: nil
-  attr :icon, :atom, default: :folder
-  attr :size, :atom, default: :default, values: [:default, :compact]
+  attr(:resource_name, :string, required: true)
+  attr(:new_path, :string, default: nil)
+  attr(:icon, :atom, default: :folder)
+  attr(:size, :atom, default: :default, values: [:default, :compact])
 
   def empty_list_state(assigns) do
     assigns =

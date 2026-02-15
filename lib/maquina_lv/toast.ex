@@ -39,14 +39,15 @@ defmodule MaquinaLv.Toast do
 
     * `inner_block` (optional) - Toast elements.
   """
-  attr :position, :atom,
+  attr(:position, :atom,
     default: :bottom_right,
     values: [:bottom_right, :bottom_left, :top_right, :top_left, :top_center, :bottom_center]
+  )
 
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block
+  slot(:inner_block)
 
   def toaster(assigns) do
     position_str = assigns.position |> to_string() |> String.replace("_", "-")
@@ -86,18 +87,19 @@ defmodule MaquinaLv.Toast do
 
     * `inner_block` (optional) - Custom toast content (title, description, action sub-components).
   """
-  attr :variant, :atom,
+  attr(:variant, :atom,
     default: :default,
     values: [:default, :success, :info, :warning, :error]
+  )
 
-  attr :title, :string, default: nil
-  attr :description, :string, default: nil
-  attr :duration, :integer, default: 5000
-  attr :dismissible, :boolean, default: true
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:title, :string, default: nil)
+  attr(:description, :string, default: nil)
+  attr(:duration, :integer, default: 5000)
+  attr(:dismissible, :boolean, default: true)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block
+  slot(:inner_block)
 
   def toast(assigns) do
     assigns =
@@ -155,11 +157,11 @@ defmodule MaquinaLv.Toast do
 
     * `inner_block` (optional) - Takes priority over `text` attribute.
   """
-  attr :text, :string, default: nil
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:text, :string, default: nil)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block
+  slot(:inner_block)
 
   def toast_title(assigns) do
     ~H"""
@@ -182,11 +184,11 @@ defmodule MaquinaLv.Toast do
 
     * `inner_block` (optional) - Takes priority over `text` attribute.
   """
-  attr :text, :string, default: nil
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:text, :string, default: nil)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block
+  slot(:inner_block)
 
   def toast_description(assigns) do
     ~H"""
@@ -206,10 +208,10 @@ defmodule MaquinaLv.Toast do
     * `class` - Additional CSS classes.
     * Global attributes are passed through.
   """
-  attr :label, :string, required: true
-  attr :href, :string, default: nil
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:label, :string, required: true)
+  attr(:href, :string, default: nil)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
   def toast_action(assigns) do
     ~H"""
@@ -233,8 +235,8 @@ defmodule MaquinaLv.Toast do
     * `flash` (required) - The Phoenix flash map.
     * `exclude` - List of flash keys to exclude.
   """
-  attr :flash, :map, required: true
-  attr :exclude, :list, default: []
+  attr(:flash, :map, required: true)
+  attr(:exclude, :list, default: [])
 
   @flash_variants %{
     "info" => :success,

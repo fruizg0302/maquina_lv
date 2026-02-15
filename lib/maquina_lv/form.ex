@@ -35,11 +35,11 @@ defmodule MaquinaLv.Form do
 
     * `inner_block` (required) - Group content (label, input, description, error).
   """
-  attr :layout, :atom, default: :default, values: [:default, :inline]
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:layout, :atom, default: :default, values: [:default, :inline])
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def form_group(assigns) do
     ~H"""
@@ -68,12 +68,12 @@ defmodule MaquinaLv.Form do
 
     * `inner_block` (required) - Label text content.
   """
-  attr :for, :string, default: nil
-  attr :required, :boolean, default: false
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:for, :string, default: nil)
+  attr(:required, :boolean, default: false)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def form_label(assigns) do
     ~H"""
@@ -102,11 +102,11 @@ defmodule MaquinaLv.Form do
 
     * `inner_block` (optional) - Takes priority over `text` attribute.
   """
-  attr :text, :string, default: nil
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:text, :string, default: nil)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block
+  slot(:inner_block)
 
   def form_description(assigns) do
     ~H"""
@@ -129,11 +129,11 @@ defmodule MaquinaLv.Form do
 
     * `inner_block` (optional) - Takes priority over `text` attribute.
   """
-  attr :text, :string, default: nil
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:text, :string, default: nil)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block
+  slot(:inner_block)
 
   def form_error(assigns) do
     ~H"""
@@ -157,11 +157,11 @@ defmodule MaquinaLv.Form do
 
     * `inner_block` (required) - Action content (buttons).
   """
-  attr :align, :atom, default: :start, values: [:start, :end, :between]
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:align, :atom, default: :start, values: [:start, :end, :between])
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def form_actions(assigns) do
     ~H"""

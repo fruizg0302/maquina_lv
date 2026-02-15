@@ -40,14 +40,14 @@ defmodule MaquinaLv.Stats do
     * `container_class` - Additional CSS classes for the card container.
     * Global attributes are passed through.
   """
-  attr :title, :string, required: true
-  attr :value, :string, required: true
-  attr :icon, :atom, default: nil
-  attr :icon_class, :string, default: nil
-  attr :subtitle, :string, default: nil
-  attr :value_class, :string, default: nil
-  attr :container_class, :string, default: nil
-  attr :rest, :global
+  attr(:title, :string, required: true)
+  attr(:value, :string, required: true)
+  attr(:icon, :atom, default: nil)
+  attr(:icon_class, :string, default: nil)
+  attr(:subtitle, :string, default: nil)
+  attr(:value_class, :string, default: nil)
+  attr(:container_class, :string, default: nil)
+  attr(:rest, :global)
 
   def stats_card(assigns) do
     ~H"""
@@ -96,13 +96,13 @@ defmodule MaquinaLv.Stats do
 
     * `action` (optional) - Action content rendered next to the grid.
   """
-  attr :cards, :list, required: true
-  attr :columns, :integer, default: 3
-  attr :container_class, :string, default: nil
-  attr :action_position, :string, default: "end", values: ["start", "end"]
-  attr :rest, :global
+  attr(:cards, :list, required: true)
+  attr(:columns, :integer, default: 3)
+  attr(:container_class, :string, default: nil)
+  attr(:action_position, :string, default: "end", values: ["start", "end"])
+  attr(:rest, :global)
 
-  slot :action
+  slot(:action)
 
   def stats_grid(assigns) do
     ~H"""

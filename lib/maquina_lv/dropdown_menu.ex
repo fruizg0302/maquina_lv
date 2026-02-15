@@ -32,11 +32,11 @@ defmodule MaquinaLv.DropdownMenu do
 
     * `inner_block` (required) - Trigger and content.
   """
-  attr :auto_close, :boolean, default: false
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:auto_close, :boolean, default: false)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def dropdown_menu(assigns) do
     assigns =
@@ -74,13 +74,13 @@ defmodule MaquinaLv.DropdownMenu do
 
     * `inner_block` (required) - Trigger content.
   """
-  attr :variant, :atom, default: :outline
-  attr :size, :atom, default: :default
-  attr :as_child, :boolean, default: false
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:variant, :atom, default: :outline)
+  attr(:size, :atom, default: :default)
+  attr(:as_child, :boolean, default: false)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def dropdown_menu_trigger(assigns) do
     ~H"""
@@ -119,13 +119,13 @@ defmodule MaquinaLv.DropdownMenu do
 
     * `inner_block` (required) - Menu items, labels, separators, groups.
   """
-  attr :align, :atom, default: :start, values: [:start, :center, :end]
-  attr :side, :atom, default: :bottom, values: [:bottom, :top, :left, :right]
-  attr :width, :atom, default: :default, values: [:default, :sm, :md, :lg]
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:align, :atom, default: :start, values: [:start, :center, :end])
+  attr(:side, :atom, default: :bottom, values: [:bottom, :top, :left, :right])
+  attr(:width, :atom, default: :default, values: [:default, :sm, :md, :lg])
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def dropdown_menu_content(assigns) do
     ~H"""
@@ -163,14 +163,14 @@ defmodule MaquinaLv.DropdownMenu do
 
     * `inner_block` (required) - Item content.
   """
-  attr :href, :string, default: nil
-  attr :method, :string, default: nil
-  attr :variant, :atom, default: :default, values: [:default, :destructive]
-  attr :disabled, :boolean, default: false
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:href, :string, default: nil)
+  attr(:method, :string, default: nil)
+  attr(:variant, :atom, default: :default, values: [:default, :destructive])
+  attr(:disabled, :boolean, default: false)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def dropdown_menu_item(assigns) do
     ~H"""
@@ -219,12 +219,12 @@ defmodule MaquinaLv.DropdownMenu do
 
     * `inner_block` (optional) - Takes priority over `text` attribute.
   """
-  attr :text, :string, default: nil
-  attr :inset, :boolean, default: false
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:text, :string, default: nil)
+  attr(:inset, :boolean, default: false)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block
+  slot(:inner_block)
 
   def dropdown_menu_label(assigns) do
     ~H"""
@@ -247,8 +247,8 @@ defmodule MaquinaLv.DropdownMenu do
     * `class` - Additional CSS classes.
     * Global attributes are passed through.
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
   def dropdown_menu_separator(assigns) do
     ~H"""
@@ -274,10 +274,10 @@ defmodule MaquinaLv.DropdownMenu do
 
     * `inner_block` (required) - Group items.
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def dropdown_menu_group(assigns) do
     ~H"""
@@ -300,11 +300,11 @@ defmodule MaquinaLv.DropdownMenu do
 
     * `inner_block` (optional) - Takes priority over `text` attribute.
   """
-  attr :text, :string, default: nil
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:text, :string, default: nil)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block
+  slot(:inner_block)
 
   def dropdown_menu_shortcut(assigns) do
     ~H"""

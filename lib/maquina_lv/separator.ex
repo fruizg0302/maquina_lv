@@ -23,9 +23,9 @@ defmodule MaquinaLv.Separator do
     * `class` - Additional CSS classes.
     * Global attributes are passed through (e.g., `id`, `phx-click`).
   """
-  attr :orientation, :atom, default: :horizontal, values: [:horizontal, :vertical]
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:orientation, :atom, default: :horizontal, values: [:horizontal, :vertical])
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
   def separator(assigns) do
     ~H"""

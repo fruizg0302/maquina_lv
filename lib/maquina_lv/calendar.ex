@@ -43,21 +43,21 @@ defmodule MaquinaLv.Calendar do
     * `class` - Additional CSS classes.
     * Global attributes are passed through.
   """
-  attr :selected, :any, default: nil
-  attr :selected_end, :any, default: nil
-  attr :month, :integer, default: nil
-  attr :year, :integer, default: nil
-  attr :mode, :atom, default: :single, values: [:single, :range]
-  attr :min_date, :any, default: nil
-  attr :max_date, :any, default: nil
-  attr :disabled_dates, :list, default: []
-  attr :show_outside_days, :boolean, default: true
-  attr :week_starts_on, :atom, default: :sunday, values: [:sunday, :monday]
-  attr :cell_size, :string, default: nil
-  attr :input_name, :string, default: nil
-  attr :input_name_end, :string, default: nil
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:selected, :any, default: nil)
+  attr(:selected_end, :any, default: nil)
+  attr(:month, :integer, default: nil)
+  attr(:year, :integer, default: nil)
+  attr(:mode, :atom, default: :single, values: [:single, :range])
+  attr(:min_date, :any, default: nil)
+  attr(:max_date, :any, default: nil)
+  attr(:disabled_dates, :list, default: [])
+  attr(:show_outside_days, :boolean, default: true)
+  attr(:week_starts_on, :atom, default: :sunday, values: [:sunday, :monday])
+  attr(:cell_size, :string, default: nil)
+  attr(:input_name, :string, default: nil)
+  attr(:input_name_end, :string, default: nil)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
   def calendar(assigns) do
     selected_date = parse_date(assigns.selected)
@@ -159,9 +159,9 @@ defmodule MaquinaLv.Calendar do
     * `month_name` - Formatted month and year string.
     * `class` - Additional CSS classes.
   """
-  attr :month_name, :string, required: true
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:month_name, :string, required: true)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
   def calendar_header(assigns) do
     ~H"""
@@ -182,15 +182,15 @@ defmodule MaquinaLv.Calendar do
   @doc """
   Renders a single week row of the calendar.
   """
-  attr :days, :list, required: true
-  attr :display_month, :integer, required: true
-  attr :selected_date, :any, default: nil
-  attr :selected_end_date, :any, default: nil
-  attr :mode, :atom, default: :single
-  attr :min_date, :any, default: nil
-  attr :max_date, :any, default: nil
-  attr :disabled_dates, :list, default: []
-  attr :show_outside_days, :boolean, default: true
+  attr(:days, :list, required: true)
+  attr(:display_month, :integer, required: true)
+  attr(:selected_date, :any, default: nil)
+  attr(:selected_end_date, :any, default: nil)
+  attr(:mode, :atom, default: :single)
+  attr(:min_date, :any, default: nil)
+  attr(:max_date, :any, default: nil)
+  attr(:disabled_dates, :list, default: [])
+  attr(:show_outside_days, :boolean, default: true)
 
   def calendar_week(assigns) do
     today = Date.utc_today()

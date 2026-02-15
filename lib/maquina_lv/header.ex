@@ -23,10 +23,10 @@ defmodule MaquinaLv.Header do
 
     * `inner_block` (required) - The header content.
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def header(assigns) do
     ~H"""

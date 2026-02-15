@@ -35,10 +35,10 @@ defmodule MaquinaLv.Pagination do
 
     * `inner_block` (required) - Pagination content.
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def pagination(assigns) do
     ~H"""
@@ -60,10 +60,10 @@ defmodule MaquinaLv.Pagination do
 
     * `inner_block` (required) - Pagination items.
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def pagination_content(assigns) do
     ~H"""
@@ -85,10 +85,10 @@ defmodule MaquinaLv.Pagination do
 
     * `inner_block` (required) - Item content (link, previous, next, or ellipsis).
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def pagination_item(assigns) do
     ~H"""
@@ -113,13 +113,13 @@ defmodule MaquinaLv.Pagination do
 
     * `inner_block` (required) - Link content (page number).
   """
-  attr :href, :string, required: true
-  attr :active, :boolean, default: false
-  attr :disabled, :boolean, default: false
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:href, :string, required: true)
+  attr(:active, :boolean, default: false)
+  attr(:disabled, :boolean, default: false)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def pagination_link(assigns) do
     ~H"""
@@ -159,12 +159,12 @@ defmodule MaquinaLv.Pagination do
     * `class` - Additional CSS classes.
     * Global attributes are passed through.
   """
-  attr :href, :string, default: nil
-  attr :label, :string, default: "Previous"
-  attr :show_label, :boolean, default: true
-  attr :disabled, :boolean, default: false
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:href, :string, default: nil)
+  attr(:label, :string, default: "Previous")
+  attr(:show_label, :boolean, default: true)
+  attr(:disabled, :boolean, default: false)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
   def pagination_previous(assigns) do
     assigns = assign(assigns, :is_disabled, assigns.disabled || is_nil(assigns.href))
@@ -215,12 +215,12 @@ defmodule MaquinaLv.Pagination do
     * `class` - Additional CSS classes.
     * Global attributes are passed through.
   """
-  attr :href, :string, default: nil
-  attr :label, :string, default: "Next"
-  attr :show_label, :boolean, default: true
-  attr :disabled, :boolean, default: false
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:href, :string, default: nil)
+  attr(:label, :string, default: "Next")
+  attr(:show_label, :boolean, default: true)
+  attr(:disabled, :boolean, default: false)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
   def pagination_next(assigns) do
     assigns = assign(assigns, :is_disabled, assigns.disabled || is_nil(assigns.href))
@@ -267,8 +267,8 @@ defmodule MaquinaLv.Pagination do
     * `class` - Additional CSS classes.
     * Global attributes are passed through.
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
   def pagination_ellipsis(assigns) do
     ~H"""
@@ -293,12 +293,12 @@ defmodule MaquinaLv.Pagination do
     * `class` - Additional CSS classes for the nav.
     * Global attributes are passed through.
   """
-  attr :current_page, :integer, required: true
-  attr :total_pages, :integer, required: true
-  attr :path_fn, :any, required: true
-  attr :show_labels, :boolean, default: true
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:current_page, :integer, required: true)
+  attr(:total_pages, :integer, required: true)
+  attr(:path_fn, :any, required: true)
+  attr(:show_labels, :boolean, default: true)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
   def pagination_nav(assigns) do
     if assigns.total_pages <= 1 do
@@ -354,11 +354,11 @@ defmodule MaquinaLv.Pagination do
     * `class` - Additional CSS classes for the nav.
     * Global attributes are passed through.
   """
-  attr :current_page, :integer, required: true
-  attr :total_pages, :integer, required: true
-  attr :path_fn, :any, required: true
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:current_page, :integer, required: true)
+  attr(:total_pages, :integer, required: true)
+  attr(:path_fn, :any, required: true)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
   def pagination_simple(assigns) do
     if assigns.total_pages <= 1 do

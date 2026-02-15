@@ -30,9 +30,9 @@ defmodule MaquinaLv.Icon do
     * `class` - Additional CSS classes to inject into the SVG element.
     * `stroke_width` - Override the default `stroke-width="2"` value.
   """
-  attr :name, :atom, required: true
-  attr :class, :string, default: nil
-  attr :stroke_width, :string, default: nil
+  attr(:name, :atom, required: true)
+  attr(:class, :string, default: nil)
+  attr(:stroke_width, :string, default: nil)
 
   def icon(assigns) do
     svg = icon_svg_for(assigns.name)

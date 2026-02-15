@@ -46,10 +46,10 @@ defmodule MaquinaLv.Card do
 
     * `inner_block` (required) - The card content.
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def card(assigns) do
     ~H"""
@@ -73,11 +73,11 @@ defmodule MaquinaLv.Card do
 
     * `inner_block` (required) - Header content (title, description, action).
   """
-  attr :layout, :atom, default: :column, values: [:column, :row]
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:layout, :atom, default: :column, values: [:column, :row])
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def card_header(assigns) do
     ~H"""
@@ -107,12 +107,12 @@ defmodule MaquinaLv.Card do
 
     * `inner_block` (optional) - Takes priority over `text` attribute.
   """
-  attr :text, :string, default: nil
-  attr :size, :atom, default: :default, values: [:default, :sm]
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:text, :string, default: nil)
+  attr(:size, :atom, default: :default, values: [:default, :sm])
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block
+  slot(:inner_block)
 
   def card_title(assigns) do
     ~H"""
@@ -140,11 +140,11 @@ defmodule MaquinaLv.Card do
 
     * `inner_block` (optional) - Takes priority over `text` attribute.
   """
-  attr :text, :string, default: nil
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:text, :string, default: nil)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block
+  slot(:inner_block)
 
   def card_description(assigns) do
     ~H"""
@@ -169,11 +169,11 @@ defmodule MaquinaLv.Card do
 
     * `inner_block` (required) - The main body content.
   """
-  attr :spacing, :atom, default: :default, values: [:default, :full]
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:spacing, :atom, default: :default, values: [:default, :full])
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def card_content(assigns) do
     ~H"""
@@ -205,12 +205,12 @@ defmodule MaquinaLv.Card do
 
     * `inner_block` (required) - Footer content (buttons, links, etc.).
   """
-  attr :align, :atom, default: :start, values: [:start, :between, :end, :center]
-  attr :spacing, :atom, default: :default, values: [:default, :full]
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:align, :atom, default: :start, values: [:start, :between, :end, :center])
+  attr(:spacing, :atom, default: :default, values: [:default, :full])
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def card_footer(assigns) do
     ~H"""
@@ -238,10 +238,10 @@ defmodule MaquinaLv.Card do
 
     * `inner_block` (required) - Action content (buttons, icons, etc.).
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def card_action(assigns) do
     ~H"""

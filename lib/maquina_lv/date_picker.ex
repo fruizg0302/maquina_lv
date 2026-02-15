@@ -43,21 +43,21 @@ defmodule MaquinaLv.DatePicker do
     * `class` - Additional CSS classes.
     * Global attributes are passed through.
   """
-  attr :selected, :any, default: nil
-  attr :selected_end, :any, default: nil
-  attr :mode, :atom, default: :single, values: [:single, :range]
-  attr :min_date, :any, default: nil
-  attr :max_date, :any, default: nil
-  attr :disabled_dates, :list, default: []
-  attr :show_outside_days, :boolean, default: true
-  attr :week_starts_on, :atom, default: :sunday, values: [:sunday, :monday]
-  attr :placeholder, :string, default: nil
-  attr :input_name, :string, default: nil
-  attr :input_name_end, :string, default: nil
-  attr :disabled, :boolean, default: false
-  attr :required, :boolean, default: false
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:selected, :any, default: nil)
+  attr(:selected_end, :any, default: nil)
+  attr(:mode, :atom, default: :single, values: [:single, :range])
+  attr(:min_date, :any, default: nil)
+  attr(:max_date, :any, default: nil)
+  attr(:disabled_dates, :list, default: [])
+  attr(:show_outside_days, :boolean, default: true)
+  attr(:week_starts_on, :atom, default: :sunday, values: [:sunday, :monday])
+  attr(:placeholder, :string, default: nil)
+  attr(:input_name, :string, default: nil)
+  attr(:input_name_end, :string, default: nil)
+  attr(:disabled, :boolean, default: false)
+  attr(:required, :boolean, default: false)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
   def date_picker(assigns) do
     selected_date = parse_date(assigns.selected)

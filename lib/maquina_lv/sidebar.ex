@@ -50,14 +50,14 @@ defmodule MaquinaLv.Sidebar do
 
     * `inner_block` (required) - Sidebar and content.
   """
-  attr :default_open, :boolean, default: true
-  attr :variant, :atom, default: :inset, values: [:inset, :floating]
-  attr :cookie_name, :string, default: "sidebar_state"
-  attr :keyboard_shortcut, :string, default: "b"
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:default_open, :boolean, default: true)
+  attr(:variant, :atom, default: :inset, values: [:inset, :floating])
+  attr(:cookie_name, :string, default: "sidebar_state")
+  attr(:keyboard_shortcut, :string, default: "b")
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def sidebar_provider(assigns) do
     assigns =
@@ -101,14 +101,14 @@ defmodule MaquinaLv.Sidebar do
 
     * `inner_block` (required) - Header, content, footer.
   """
-  attr :state, :atom, default: :collapsed, values: [:expanded, :collapsed]
-  attr :collapsible, :atom, default: :offcanvas, values: [:offcanvas, :icon, :none]
-  attr :variant, :atom, default: :inset, values: [:inset, :floating]
-  attr :side, :atom, default: :left, values: [:left, :right]
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:state, :atom, default: :collapsed, values: [:expanded, :collapsed])
+  attr(:collapsible, :atom, default: :offcanvas, values: [:offcanvas, :icon, :none])
+  attr(:variant, :atom, default: :inset, values: [:inset, :floating])
+  attr(:side, :atom, default: :left, values: [:left, :right])
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def sidebar(assigns) do
     assigns =
@@ -150,10 +150,10 @@ defmodule MaquinaLv.Sidebar do
   @doc """
   Renders the sidebar header section.
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def sidebar_header(assigns) do
     ~H"""
@@ -168,10 +168,10 @@ defmodule MaquinaLv.Sidebar do
   @doc """
   Renders the sidebar scrollable content area.
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def sidebar_content(assigns) do
     ~H"""
@@ -186,10 +186,10 @@ defmodule MaquinaLv.Sidebar do
   @doc """
   Renders the sidebar footer section.
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def sidebar_footer(assigns) do
     ~H"""
@@ -213,11 +213,11 @@ defmodule MaquinaLv.Sidebar do
 
     * `inner_block` (required) - Menu items.
   """
-  attr :title, :string, default: nil
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:title, :string, default: nil)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def sidebar_group(assigns) do
     ~H"""
@@ -233,10 +233,10 @@ defmodule MaquinaLv.Sidebar do
   @doc """
   Renders the sidebar menu list.
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def sidebar_menu(assigns) do
     ~H"""
@@ -251,10 +251,10 @@ defmodule MaquinaLv.Sidebar do
   @doc """
   Renders a sidebar menu item container.
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def sidebar_menu_item(assigns) do
     ~H"""
@@ -278,13 +278,13 @@ defmodule MaquinaLv.Sidebar do
     * `active` - Whether this item is currently active.
     * `class` - Additional CSS classes.
   """
-  attr :title, :string, required: true
-  attr :url, :string, default: "#"
-  attr :icon_name, :atom, default: nil
-  attr :size, :atom, default: :default, values: [:default, :sm, :lg]
-  attr :active, :boolean, default: false
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:title, :string, required: true)
+  attr(:url, :string, default: "#")
+  attr(:icon_name, :atom, default: nil)
+  attr(:size, :atom, default: :default, values: [:default, :sm, :lg])
+  attr(:active, :boolean, default: false)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
   def sidebar_menu_button(assigns) do
     ~H"""
@@ -317,14 +317,14 @@ defmodule MaquinaLv.Sidebar do
     * `active` - Whether this item is currently active.
     * `class` - Additional CSS classes.
   """
-  attr :title, :string, required: true
-  attr :subtitle, :string, default: nil
-  attr :url, :string, default: "#"
-  attr :icon, :atom, default: nil
-  attr :text_icon, :string, default: nil
-  attr :active, :boolean, default: false
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:title, :string, required: true)
+  attr(:subtitle, :string, default: nil)
+  attr(:url, :string, default: "#")
+  attr(:icon, :atom, default: nil)
+  attr(:text_icon, :string, default: nil)
+  attr(:active, :boolean, default: false)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
   def sidebar_menu_link(assigns) do
     ~H"""
@@ -357,9 +357,9 @@ defmodule MaquinaLv.Sidebar do
     * `icon_name` - Icon to display. Defaults to `:left_panel`.
     * `class` - Additional CSS classes.
   """
-  attr :icon_name, :atom, default: :left_panel
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:icon_name, :atom, default: :left_panel)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
   def sidebar_trigger(assigns) do
     ~H"""
@@ -381,10 +381,10 @@ defmodule MaquinaLv.Sidebar do
   @doc """
   Renders the main content area adjacent to the sidebar.
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def sidebar_inset(assigns) do
     ~H"""

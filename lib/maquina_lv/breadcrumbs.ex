@@ -44,11 +44,11 @@ defmodule MaquinaLv.Breadcrumbs do
 
     * `inner_block` (required) - Breadcrumbs content.
   """
-  attr :responsive, :boolean, default: false
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:responsive, :boolean, default: false)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def breadcrumbs(assigns) do
     assigns =
@@ -84,10 +84,10 @@ defmodule MaquinaLv.Breadcrumbs do
 
     * `inner_block` (required) - List items.
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def breadcrumbs_list(assigns) do
     ~H"""
@@ -109,10 +109,10 @@ defmodule MaquinaLv.Breadcrumbs do
 
     * `inner_block` (required) - Item content (link or page).
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def breadcrumbs_item(assigns) do
     ~H"""
@@ -135,11 +135,11 @@ defmodule MaquinaLv.Breadcrumbs do
 
     * `inner_block` (required) - Link text.
   """
-  attr :href, :string, required: true
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:href, :string, required: true)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def breadcrumbs_link(assigns) do
     ~H"""
@@ -161,10 +161,10 @@ defmodule MaquinaLv.Breadcrumbs do
 
     * `inner_block` (required) - Page text.
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def breadcrumbs_page(assigns) do
     ~H"""
@@ -194,11 +194,11 @@ defmodule MaquinaLv.Breadcrumbs do
 
     * `inner_block` (optional) - Custom separator content (only used when `icon` is `:custom`).
   """
-  attr :icon, :atom, default: :chevron_right
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:icon, :atom, default: :chevron_right)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block
+  slot(:inner_block)
 
   def breadcrumbs_separator(assigns) do
     ~H"""
@@ -220,8 +220,8 @@ defmodule MaquinaLv.Breadcrumbs do
     * `class` - Additional CSS classes.
     * Global attributes are passed through.
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
   def breadcrumbs_ellipsis(assigns) do
     ~H"""

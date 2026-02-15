@@ -34,16 +34,16 @@ defmodule MaquinaLv.MenuButton do
 
     * `inner_block` (optional) - Submenu content.
   """
-  attr :title, :string, required: true
-  attr :subtitle, :string, default: nil
-  attr :icon, :string, default: nil
-  attr :text_icon, :string, default: nil
-  attr :icon_classes, :string, default: nil
-  attr :submenu, :boolean, default: false
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:title, :string, required: true)
+  attr(:subtitle, :string, default: nil)
+  attr(:icon, :string, default: nil)
+  attr(:text_icon, :string, default: nil)
+  attr(:icon_classes, :string, default: nil)
+  attr(:submenu, :boolean, default: false)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block
+  slot(:inner_block)
 
   def menu_button(assigns) do
     assigns =

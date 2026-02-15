@@ -5,7 +5,6 @@ defmodule MaquinaLv.EmptyTest do
   import Phoenix.LiveViewTest
   import MaquinaLv.Empty
 
-
   # ── empty/1 ──────────────────────────────────────────────────────────
 
   describe "empty/1" do

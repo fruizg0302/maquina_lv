@@ -48,15 +48,15 @@ defmodule MaquinaLv.ToggleGroup do
 
     * `inner_block` (required) - Toggle group items.
   """
-  attr :type, :atom, default: :single, values: [:single, :multiple]
-  attr :variant, :atom, default: :default, values: [:default, :outline]
-  attr :size, :atom, default: :default, values: [:default, :sm, :lg]
-  attr :value, :any, default: nil
-  attr :disabled, :boolean, default: false
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:type, :atom, default: :single, values: [:single, :multiple])
+  attr(:variant, :atom, default: :default, values: [:default, :outline])
+  attr(:size, :atom, default: :default, values: [:default, :sm, :lg])
+  attr(:value, :any, default: nil)
+  attr(:disabled, :boolean, default: false)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def toggle_group(assigns) do
     assigns =
@@ -108,14 +108,14 @@ defmodule MaquinaLv.ToggleGroup do
 
     * `inner_block` (required) - Button content (text, icon, etc.).
   """
-  attr :value, :string, required: true
-  attr :pressed, :boolean, default: false
-  attr :disabled, :boolean, default: false
-  attr :aria_label, :string, default: nil
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:value, :string, required: true)
+  attr(:pressed, :boolean, default: false)
+  attr(:disabled, :boolean, default: false)
+  attr(:aria_label, :string, default: nil)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def toggle_group_item(assigns) do
     ~H"""
@@ -149,14 +149,14 @@ defmodule MaquinaLv.ToggleGroup do
     * `class` - Additional CSS classes.
     * Global attributes are passed through.
   """
-  attr :items, :list, required: true
-  attr :type, :atom, default: :single, values: [:single, :multiple]
-  attr :variant, :atom, default: :default, values: [:default, :outline]
-  attr :size, :atom, default: :default, values: [:default, :sm, :lg]
-  attr :value, :any, default: nil
-  attr :disabled, :boolean, default: false
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:items, :list, required: true)
+  attr(:type, :atom, default: :single, values: [:single, :multiple])
+  attr(:variant, :atom, default: :default, values: [:default, :outline])
+  attr(:size, :atom, default: :default, values: [:default, :sm, :lg])
+  attr(:value, :any, default: nil)
+  attr(:disabled, :boolean, default: false)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
   def toggle_group_simple(assigns) do
     selected_values = normalize_value(assigns.value)

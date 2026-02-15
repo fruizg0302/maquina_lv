@@ -26,10 +26,10 @@ defmodule MaquinaLv.Dropdown do
 
     * `inner_block` (required) - Dropdown content (links, items).
   """
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block, required: true
+  slot(:inner_block, required: true)
 
   def dropdown(assigns) do
     ~H"""

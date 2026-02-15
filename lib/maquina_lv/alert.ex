@@ -33,12 +33,16 @@ defmodule MaquinaLv.Alert do
 
     * `inner_block` (required) - The alert content.
   """
-  attr :variant, :atom, default: :default, values: [:default, :destructive, :info, :warning, :success]
-  attr :icon, :atom, default: nil
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:variant, :atom,
+    default: :default,
+    values: [:default, :destructive, :info, :warning, :success]
+  )
 
-  slot :inner_block, required: true
+  attr(:icon, :atom, default: nil)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
+
+  slot(:inner_block, required: true)
 
   def alert(assigns) do
     ~H"""
@@ -69,11 +73,11 @@ defmodule MaquinaLv.Alert do
 
     * `inner_block` (optional) - Takes priority over `text` attribute.
   """
-  attr :text, :string, default: nil
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:text, :string, default: nil)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block
+  slot(:inner_block)
 
   def alert_title(assigns) do
     ~H"""
@@ -96,11 +100,11 @@ defmodule MaquinaLv.Alert do
 
     * `inner_block` (optional) - Takes priority over `text` attribute.
   """
-  attr :text, :string, default: nil
-  attr :class, :string, default: nil
-  attr :rest, :global
+  attr(:text, :string, default: nil)
+  attr(:class, :string, default: nil)
+  attr(:rest, :global)
 
-  slot :inner_block
+  slot(:inner_block)
 
   def alert_description(assigns) do
     ~H"""
