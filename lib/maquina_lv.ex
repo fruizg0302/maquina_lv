@@ -33,6 +33,7 @@ defmodule MaquinaLv do
       import MaquinaLv.Card
       import MaquinaLv.Combobox
       import MaquinaLv.DatePicker
+      import MaquinaLv.Dropdown
       import MaquinaLv.DropdownMenu
       import MaquinaLv.Empty
       import MaquinaLv.Form
@@ -41,6 +42,7 @@ defmodule MaquinaLv do
       import MaquinaLv.MenuButton
       import MaquinaLv.Pagination
       import MaquinaLv.Separator
+      import MaquinaLv.Sidebar
       import MaquinaLv.Stats
       import MaquinaLv.Table
       import MaquinaLv.Toast
