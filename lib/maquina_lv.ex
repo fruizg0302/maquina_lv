@@ -29,7 +29,10 @@ defmodule MaquinaLv do
       import MaquinaLv.Alert
       import MaquinaLv.Badge
       import MaquinaLv.Breadcrumbs
+      import MaquinaLv.Calendar
       import MaquinaLv.Card
+      import MaquinaLv.Combobox
+      import MaquinaLv.DatePicker
       import MaquinaLv.DropdownMenu
       import MaquinaLv.Empty
       import MaquinaLv.Form
