@@ -28,6 +28,7 @@ defmodule MaquinaLv.Header do
 
   slot(:inner_block, required: true)
 
+  @spec header(map()) :: Phoenix.LiveView.Rendered.t()
   def header(assigns) do
     ~H"""
     <header data-component="header" class={@class} {@rest}>

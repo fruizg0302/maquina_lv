@@ -59,6 +59,7 @@ defmodule MaquinaLv.Calendar do
   attr(:class, :string, default: nil)
   attr(:rest, :global)
 
+  @spec calendar(map()) :: Phoenix.LiveView.Rendered.t()
   def calendar(assigns) do
     selected_date = parse_date(assigns.selected)
     selected_end_date = parse_date(assigns.selected_end)
@@ -163,6 +164,7 @@ defmodule MaquinaLv.Calendar do
   attr(:class, :string, default: nil)
   attr(:rest, :global)
 
+  @spec calendar_header(map()) :: Phoenix.LiveView.Rendered.t()
   def calendar_header(assigns) do
     ~H"""
     <div data-calendar-part="header" class={@class} {@rest}>
@@ -192,54 +194,10 @@ defmodule MaquinaLv.Calendar do
   attr(:disabled_dates, :list, default: [])
   attr(:show_outside_days, :boolean, default: true)
 
+  @spec calendar_week(map()) :: Phoenix.LiveView.Rendered.t()
   def calendar_week(assigns) do
     today = Date.utc_today()
-
-    day_data =
-      assigns.days
-      |> Enum.map(fn day ->
-        is_outside = day.month != assigns.display_month
-        is_today = Date.compare(day, today) == :eq
-        is_selected = assigns.selected_date && Date.compare(day, assigns.selected_date) == :eq
-
-        is_range_end =
-          assigns.selected_end_date && Date.compare(day, assigns.selected_end_date) == :eq
-
-        is_range_middle =
-          assigns.selected_date && assigns.selected_end_date &&
-            Date.compare(day, assigns.selected_date) == :gt &&
-            Date.compare(day, assigns.selected_end_date) == :lt
-
-        is_disabled =
-          (assigns.min_date && Date.compare(day, assigns.min_date) == :lt) ||
-            (assigns.max_date && Date.compare(day, assigns.max_date) == :gt) ||
-            day in assigns.disabled_dates
-
-        day_state =
-          cond do
-            is_selected && assigns.mode == :range && assigns.selected_end_date -> "range-start"
-            is_range_end -> "range-end"
-            is_range_middle -> "range-middle"
-            is_selected -> "selected"
-            true -> nil
-          end
-
-        show = !is_outside || assigns.show_outside_days
-
-        %{
-          date: day,
-          date_str: Date.to_iso8601(day),
-          day_num: day.day,
-          is_outside: is_outside,
-          is_today: is_today,
-          is_disabled: is_disabled,
-          day_state: day_state,
-          show: show,
-          tabindex: if(is_today, do: "0", else: "-1"),
-          aria_selected: day_state in ["selected", "range-start", "range-end"]
-        }
-      end)
-
+    day_data = Enum.map(assigns.days, &build_day_data(&1, assigns, today))
     assigns = assign(assigns, :day_data, day_data)
 
     ~H"""
@@ -262,11 +220,60 @@ defmodule MaquinaLv.Calendar do
     """
   end
 
+  # ── Day Data Helpers ──────────────────────────────────────────────
+
+  defp build_day_data(day, assigns, today) do
+    is_outside = day.month != assigns.display_month
+    is_today = Date.compare(day, today) == :eq
+    is_selected = assigns.selected_date && Date.compare(day, assigns.selected_date) == :eq
+
+    is_range_end =
+      assigns.selected_end_date && Date.compare(day, assigns.selected_end_date) == :eq
+
+    is_range_middle =
+      assigns.selected_date && assigns.selected_end_date &&
+        Date.compare(day, assigns.selected_date) == :gt &&
+        Date.compare(day, assigns.selected_end_date) == :lt
+
+    is_disabled = day_disabled?(day, assigns)
+    day_state = day_state(is_selected, is_range_end, is_range_middle, assigns)
+
+    %{
+      date: day,
+      date_str: Date.to_iso8601(day),
+      day_num: day.day,
+      is_outside: is_outside,
+      is_today: is_today,
+      is_disabled: is_disabled,
+      day_state: day_state,
+      show: !is_outside || assigns.show_outside_days,
+      tabindex: if(is_today, do: "0", else: "-1"),
+      aria_selected: day_state in ["selected", "range-start", "range-end"]
+    }
+  end
+
+  defp day_disabled?(day, assigns) do
+    (assigns.min_date && Date.compare(day, assigns.min_date) == :lt) ||
+      (assigns.max_date && Date.compare(day, assigns.max_date) == :gt) ||
+      day in assigns.disabled_dates
+  end
+
+  defp day_state(is_selected, is_range_end, is_range_middle, assigns) do
+    cond do
+      is_selected && assigns.mode == :range && assigns.selected_end_date -> "range-start"
+      is_range_end -> "range-end"
+      is_range_middle -> "range-middle"
+      is_selected -> "selected"
+      true -> nil
+    end
+  end
+
   # ── Helper Functions ───────────────────────────────────────────────
 
   @doc """
   Generates the weeks grid for a given month.
   """
+  @spec build_weeks(Date.t(), atom()) :: [[Date.t()]]
   def build_weeks(first_of_month, week_starts_on) do
     last_of_month = Date.end_of_month(first_of_month)
 
@@ -287,6 +294,7 @@ defmodule MaquinaLv.Calendar do
   @doc """
   Returns weekday name abbreviations.
   """
+  @spec weekday_names(atom(), atom()) :: [String.t()]
   def weekday_names(week_starts_on, format \\ :short) do
     names =
       case format do
@@ -304,9 +312,12 @@ defmodule MaquinaLv.Calendar do
   @doc """
   Checks if a date falls within a range.
   """
+  @spec date_in_range?(Date.t(), Date.t() | nil, Date.t() | nil) :: boolean()
+  def date_in_range?(_date, nil, _end_date), do: false
+  def date_in_range?(_date, _start_date, nil), do: false
+
   def date_in_range?(date, start_date, end_date) do
-    start_date && end_date &&
-      Date.compare(date, start_date) in [:eq, :gt] &&
+    Date.compare(date, start_date) in [:eq, :gt] &&
       Date.compare(date, end_date) in [:eq, :lt]
   end
 

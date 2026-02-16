@@ -40,6 +40,7 @@ defmodule MaquinaLv.Pagination do
 
   slot(:inner_block, required: true)
 
+  @spec pagination(map()) :: Phoenix.LiveView.Rendered.t()
   def pagination(assigns) do
     ~H"""
     <nav data-component="pagination" aria-label="Pagination" class={@class} {@rest}>
@@ -65,6 +66,7 @@ defmodule MaquinaLv.Pagination do
 
   slot(:inner_block, required: true)
 
+  @spec pagination_content(map()) :: Phoenix.LiveView.Rendered.t()
   def pagination_content(assigns) do
     ~H"""
     <ul data-pagination-part="content" class={@class} {@rest}>
@@ -90,6 +92,7 @@ defmodule MaquinaLv.Pagination do
 
   slot(:inner_block, required: true)
 
+  @spec pagination_item(map()) :: Phoenix.LiveView.Rendered.t()
   def pagination_item(assigns) do
     ~H"""
     <li data-pagination-part="item" class={@class} {@rest}>
@@ -121,6 +124,7 @@ defmodule MaquinaLv.Pagination do
 
   slot(:inner_block, required: true)
 
+  @spec pagination_link(map()) :: Phoenix.LiveView.Rendered.t()
   def pagination_link(assigns) do
     ~H"""
     <%= if @disabled do %>
@@ -166,6 +170,7 @@ defmodule MaquinaLv.Pagination do
   attr(:class, :string, default: nil)
   attr(:rest, :global)
 
+  @spec pagination_previous(map()) :: Phoenix.LiveView.Rendered.t()
   def pagination_previous(assigns) do
     assigns = assign(assigns, :is_disabled, assigns.disabled || is_nil(assigns.href))
 
@@ -222,6 +227,7 @@ defmodule MaquinaLv.Pagination do
   attr(:class, :string, default: nil)
   attr(:rest, :global)
 
+  @spec pagination_next(map()) :: Phoenix.LiveView.Rendered.t()
   def pagination_next(assigns) do
     assigns = assign(assigns, :is_disabled, assigns.disabled || is_nil(assigns.href))
 
@@ -270,6 +276,7 @@ defmodule MaquinaLv.Pagination do
   attr(:class, :string, default: nil)
   attr(:rest, :global)
 
+  @spec pagination_ellipsis(map()) :: Phoenix.LiveView.Rendered.t()
   def pagination_ellipsis(assigns) do
     ~H"""
     <span data-pagination-part="ellipsis" aria-hidden="true" class={@class} {@rest}>
@@ -300,6 +307,7 @@ defmodule MaquinaLv.Pagination do
   attr(:class, :string, default: nil)
   attr(:rest, :global)
 
+  @spec pagination_nav(map()) :: Phoenix.LiveView.Rendered.t()
   def pagination_nav(assigns) do
     if assigns.total_pages <= 1 do
       ~H""
@@ -360,6 +368,7 @@ defmodule MaquinaLv.Pagination do
   attr(:class, :string, default: nil)
   attr(:rest, :global)
 
+  @spec pagination_simple(map()) :: Phoenix.LiveView.Rendered.t()
   def pagination_simple(assigns) do
     if assigns.total_pages <= 1 do
       ~H""

@@ -145,7 +145,7 @@ defmodule MaquinaLv.StatsTest do
         <.stats_grid cards={@cards} columns={4} />
         """)
 
-      assert html =~ "sm:grid-cols-4"
+      assert html =~ ~s(data-columns="4")
     end
 
     test "defaults to 3 columns" do
@@ -158,7 +158,7 @@ defmodule MaquinaLv.StatsTest do
         <.stats_grid cards={@cards} />
         """)
 
-      assert html =~ "sm:grid-cols-3"
+      assert html =~ ~s(data-columns="3")
     end
 
     test "passes container_class through" do

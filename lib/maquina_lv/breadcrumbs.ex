@@ -50,6 +50,7 @@ defmodule MaquinaLv.Breadcrumbs do
 
   slot(:inner_block, required: true)
 
+  @spec breadcrumbs(map()) :: Phoenix.LiveView.Rendered.t()
   def breadcrumbs(assigns) do
     assigns =
       if assigns.responsive && !assigns.rest[:id] do
@@ -89,6 +90,7 @@ defmodule MaquinaLv.Breadcrumbs do
 
   slot(:inner_block, required: true)
 
+  @spec breadcrumbs_list(map()) :: Phoenix.LiveView.Rendered.t()
   def breadcrumbs_list(assigns) do
     ~H"""
     <ol data-breadcrumb-part="list" class={@class} {@rest}>
@@ -114,6 +116,7 @@ defmodule MaquinaLv.Breadcrumbs do
 
   slot(:inner_block, required: true)
 
+  @spec breadcrumbs_item(map()) :: Phoenix.LiveView.Rendered.t()
   def breadcrumbs_item(assigns) do
     ~H"""
     <li data-breadcrumb-part="item" class={@class} {@rest}>
@@ -141,6 +144,7 @@ defmodule MaquinaLv.Breadcrumbs do
 
   slot(:inner_block, required: true)
 
+  @spec breadcrumbs_link(map()) :: Phoenix.LiveView.Rendered.t()
   def breadcrumbs_link(assigns) do
     ~H"""
     <a href={@href} data-breadcrumb-part="link" class={@class} {@rest}>
@@ -166,6 +170,7 @@ defmodule MaquinaLv.Breadcrumbs do
 
   slot(:inner_block, required: true)
 
+  @spec breadcrumbs_page(map()) :: Phoenix.LiveView.Rendered.t()
   def breadcrumbs_page(assigns) do
     ~H"""
     <span
@@ -200,6 +205,7 @@ defmodule MaquinaLv.Breadcrumbs do
 
   slot(:inner_block)
 
+  @spec breadcrumbs_separator(map()) :: Phoenix.LiveView.Rendered.t()
   def breadcrumbs_separator(assigns) do
     ~H"""
     <li data-breadcrumb-part="separator" role="presentation" aria-hidden="true" class={@class} {@rest}>
@@ -223,6 +229,7 @@ defmodule MaquinaLv.Breadcrumbs do
   attr(:class, :string, default: nil)
   attr(:rest, :global)
 
+  @spec breadcrumbs_ellipsis(map()) :: Phoenix.LiveView.Rendered.t()
   def breadcrumbs_ellipsis(assigns) do
     ~H"""
     <span data-breadcrumb-part="ellipsis" role="presentation" class={@class} {@rest}>

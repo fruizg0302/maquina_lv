@@ -49,6 +49,7 @@ defmodule MaquinaLv.Stats do
   attr(:container_class, :string, default: nil)
   attr(:rest, :global)
 
+  @spec stats_card(map()) :: Phoenix.LiveView.Rendered.t()
   def stats_card(assigns) do
     ~H"""
     <div
@@ -104,6 +105,7 @@ defmodule MaquinaLv.Stats do
 
   slot(:action)
 
+  @spec stats_grid(map()) :: Phoenix.LiveView.Rendered.t()
   def stats_grid(assigns) do
     ~H"""
     <div
@@ -118,11 +120,15 @@ defmodule MaquinaLv.Stats do
         </div>
       <% end %>
 
-      <div class={[
-        "grid gap-4 grid-cols-1 sm:grid-cols-#{@columns}",
-        @container_class,
-        if(@action != [], do: "flex-1")
-      ]}>
+      <div
+        data-component="stats-grid"
+        data-columns={@columns}
+        class={[
+          "grid gap-4 grid-cols-1",
+          @container_class,
+          if(@action != [], do: "flex-1")
+        ]}
+      >
         <.stats_card
           :for={card <- @cards}
           title={card.title}

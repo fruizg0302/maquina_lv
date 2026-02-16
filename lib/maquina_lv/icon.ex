@@ -34,6 +34,7 @@ defmodule MaquinaLv.Icon do
   attr(:class, :string, default: nil)
   attr(:stroke_width, :string, default: nil)
 
+  @spec icon(map()) :: Phoenix.LiveView.Rendered.t()
   def icon(assigns) do
     svg = icon_svg_for(assigns.name)
 

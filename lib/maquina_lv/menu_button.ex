@@ -45,6 +45,7 @@ defmodule MaquinaLv.MenuButton do
 
   slot(:inner_block)
 
+  @spec menu_button(map()) :: Phoenix.LiveView.Rendered.t()
   def menu_button(assigns) do
     assigns =
       assign_new(assigns, :hook_id, fn ->

@@ -53,6 +53,7 @@ defmodule MaquinaLv.Combobox do
 
   slot(:inner_block, required: true)
 
+  @spec combobox(map()) :: Phoenix.LiveView.Rendered.t()
   def combobox(assigns) do
     assigns =
       assign_new(assigns, :hook_id, fn ->
@@ -91,6 +92,7 @@ defmodule MaquinaLv.Combobox do
   attr(:class, :string, default: nil)
   attr(:rest, :global)
 
+  @spec combobox_trigger(map()) :: Phoenix.LiveView.Rendered.t()
   def combobox_trigger(assigns) do
     ~H"""
     <button
@@ -135,6 +137,7 @@ defmodule MaquinaLv.Combobox do
 
   slot(:inner_block, required: true)
 
+  @spec combobox_content(map()) :: Phoenix.LiveView.Rendered.t()
   def combobox_content(assigns) do
     ~H"""
     <div
@@ -166,6 +169,7 @@ defmodule MaquinaLv.Combobox do
   attr(:class, :string, default: nil)
   attr(:rest, :global)
 
+  @spec combobox_input(map()) :: Phoenix.LiveView.Rendered.t()
   def combobox_input(assigns) do
     ~H"""
     <div data-combobox-part="input-wrapper">
@@ -198,6 +202,7 @@ defmodule MaquinaLv.Combobox do
 
   slot(:inner_block, required: true)
 
+  @spec combobox_list(map()) :: Phoenix.LiveView.Rendered.t()
   def combobox_list(assigns) do
     ~H"""
     <div data-combobox-part="list" class={@class} {@rest}>
@@ -230,6 +235,7 @@ defmodule MaquinaLv.Combobox do
 
   slot(:inner_block, required: true)
 
+  @spec combobox_option(map()) :: Phoenix.LiveView.Rendered.t()
   def combobox_option(assigns) do
     ~H"""
     <div
@@ -264,6 +270,7 @@ defmodule MaquinaLv.Combobox do
   attr(:class, :string, default: nil)
   attr(:rest, :global)
 
+  @spec combobox_empty(map()) :: Phoenix.LiveView.Rendered.t()
   def combobox_empty(assigns) do
     ~H"""
     <div data-combobox-part="empty" hidden class={@class} {@rest}>
@@ -286,6 +293,7 @@ defmodule MaquinaLv.Combobox do
 
   slot(:inner_block, required: true)
 
+  @spec combobox_group(map()) :: Phoenix.LiveView.Rendered.t()
   def combobox_group(assigns) do
     ~H"""
     <div role="group" data-combobox-part="group" class={@class} {@rest}>
@@ -313,6 +321,7 @@ defmodule MaquinaLv.Combobox do
 
   slot(:inner_block)
 
+  @spec combobox_label(map()) :: Phoenix.LiveView.Rendered.t()
   def combobox_label(assigns) do
     ~H"""
     <div data-combobox-part="label" class={@class} {@rest}>
@@ -329,6 +338,7 @@ defmodule MaquinaLv.Combobox do
   attr(:class, :string, default: nil)
   attr(:rest, :global)
 
+  @spec combobox_separator(map()) :: Phoenix.LiveView.Rendered.t()
   def combobox_separator(assigns) do
     ~H"""
     <div role="separator" data-combobox-part="separator" class={@class} {@rest} />
@@ -359,6 +369,7 @@ defmodule MaquinaLv.Combobox do
   attr(:class, :string, default: nil)
   attr(:rest, :global)
 
+  @spec combobox_simple(map()) :: Phoenix.LiveView.Rendered.t()
   def combobox_simple(assigns) do
     assigns =
       assign_new(assigns, :hook_id, fn ->

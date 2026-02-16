@@ -27,6 +27,7 @@ defmodule MaquinaLv.Separator do
   attr(:class, :string, default: nil)
   attr(:rest, :global)
 
+  @spec separator(map()) :: Phoenix.LiveView.Rendered.t()
   def separator(assigns) do
     ~H"""
     <div role="separator" data-orientation={@orientation} class={@class} {@rest}></div>

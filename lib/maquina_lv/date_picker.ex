@@ -59,34 +59,17 @@ defmodule MaquinaLv.DatePicker do
   attr(:class, :string, default: nil)
   attr(:rest, :global)
 
+  @spec date_picker(map()) :: Phoenix.LiveView.Rendered.t()
   def date_picker(assigns) do
     selected_date = parse_date(assigns.selected)
     selected_end_date = parse_date(assigns.selected_end)
-
-    display_value =
-      cond do
-        assigns.mode == :range && selected_date && selected_end_date ->
-          "#{format_date_short(selected_date)} - #{format_date_short(selected_end_date)}"
-
-        assigns.mode == :range && selected_date ->
-          "#{format_date_short(selected_date)} - ..."
-
-        selected_date ->
-          format_date_long(selected_date)
-
-        true ->
-          nil
-      end
-
-    default_placeholder =
-      if assigns.mode == :range, do: "Select date range", else: "Select date"
 
     assigns =
       assigns
       |> assign(:selected_date, selected_date)
       |> assign(:selected_end_date, selected_end_date)
-      |> assign(:display_value, display_value)
-      |> assign(:default_placeholder, default_placeholder)
+      |> assign(:display_value, display_value(assigns.mode, selected_date, selected_end_date))
+      |> assign(:default_placeholder, default_placeholder(assigns.mode))
       |> assign_new(:hook_id, fn ->
         assigns.rest[:id] || "date-picker-#{System.unique_integer([:positive])}"
       end)
@@ -169,6 +152,20 @@ defmodule MaquinaLv.DatePicker do
   end
 
   defp parse_date(_), do: nil
+
+  defp display_value(:range, %Date{} = start_date, %Date{} = end_date) do
+    "#{format_date_short(start_date)} - #{format_date_short(end_date)}"
+  end
+
+  defp display_value(:range, %Date{} = start_date, _end_date) do
+    "#{format_date_short(start_date)} - ..."
+  end
+
+  defp display_value(_mode, %Date{} = date, _end_date), do: format_date_long(date)
+  defp display_value(_mode, _date, _end_date), do: nil
+
+  defp default_placeholder(:range), do: "Select date range"
+  defp default_placeholder(_mode), do: "Select date"
 
   defp format_date_short(date) do
     Calendar.strftime(date, "%b %-d, %Y")

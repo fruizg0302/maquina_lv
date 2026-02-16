@@ -71,6 +71,7 @@ defmodule MaquinaLv.Table do
 
   slot(:inner_block, required: true)
 
+  @spec table(map()) :: Phoenix.LiveView.Rendered.t()
   def table(assigns) do
     ~H"""
     <div :if={@container} data-table-part="container" data-variant={@variant}>
@@ -104,6 +105,7 @@ defmodule MaquinaLv.Table do
 
   slot(:inner_block, required: true)
 
+  @spec table_header(map()) :: Phoenix.LiveView.Rendered.t()
   def table_header(assigns) do
     ~H"""
     <thead data-table-part="header" data-sticky={@sticky && "true"} class={@class} {@rest}>
@@ -129,6 +131,7 @@ defmodule MaquinaLv.Table do
 
   slot(:inner_block, required: true)
 
+  @spec table_body(map()) :: Phoenix.LiveView.Rendered.t()
   def table_body(assigns) do
     ~H"""
     <tbody data-table-part="body" class={@class} {@rest}>
@@ -157,6 +160,7 @@ defmodule MaquinaLv.Table do
 
   slot(:inner_block, required: true)
 
+  @spec table_row(map()) :: Phoenix.LiveView.Rendered.t()
   def table_row(assigns) do
     ~H"""
     <tr data-table-part="row" data-state={@selected && "selected"} class={@class} {@rest}>
@@ -184,6 +188,7 @@ defmodule MaquinaLv.Table do
 
   slot(:inner_block, required: true)
 
+  @spec table_head(map()) :: Phoenix.LiveView.Rendered.t()
   def table_head(assigns) do
     ~H"""
     <th data-table-part="head" scope={@scope} class={@class} {@rest}>
@@ -209,6 +214,7 @@ defmodule MaquinaLv.Table do
 
   slot(:inner_block, required: true)
 
+  @spec table_cell(map()) :: Phoenix.LiveView.Rendered.t()
   def table_cell(assigns) do
     ~H"""
     <td data-table-part="cell" class={@class} {@rest}>
@@ -234,6 +240,7 @@ defmodule MaquinaLv.Table do
 
   slot(:inner_block, required: true)
 
+  @spec table_footer(map()) :: Phoenix.LiveView.Rendered.t()
   def table_footer(assigns) do
     ~H"""
     <tfoot data-table-part="footer" class={@class} {@rest}>
@@ -259,6 +266,7 @@ defmodule MaquinaLv.Table do
 
   slot(:inner_block, required: true)
 
+  @spec table_caption(map()) :: Phoenix.LiveView.Rendered.t()
   def table_caption(assigns) do
     ~H"""
     <caption data-table-part="caption" class={@class} {@rest}>

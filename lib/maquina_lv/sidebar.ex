@@ -59,6 +59,7 @@ defmodule MaquinaLv.Sidebar do
 
   slot(:inner_block, required: true)
 
+  @spec sidebar_provider(map()) :: Phoenix.LiveView.Rendered.t()
   def sidebar_provider(assigns) do
     assigns =
       assign_new(assigns, :hook_id, fn ->
@@ -110,6 +111,7 @@ defmodule MaquinaLv.Sidebar do
 
   slot(:inner_block, required: true)
 
+  @spec sidebar(map()) :: Phoenix.LiveView.Rendered.t()
   def sidebar(assigns) do
     assigns =
       assign_new(assigns, :sidebar_id, fn ->
@@ -155,6 +157,7 @@ defmodule MaquinaLv.Sidebar do
 
   slot(:inner_block, required: true)
 
+  @spec sidebar_header(map()) :: Phoenix.LiveView.Rendered.t()
   def sidebar_header(assigns) do
     ~H"""
     <div data-sidebar-part="header" class={@class} {@rest}>
@@ -173,6 +176,7 @@ defmodule MaquinaLv.Sidebar do
 
   slot(:inner_block, required: true)
 
+  @spec sidebar_content(map()) :: Phoenix.LiveView.Rendered.t()
   def sidebar_content(assigns) do
     ~H"""
     <div data-sidebar-part="content" class={@class} {@rest}>
@@ -191,6 +195,7 @@ defmodule MaquinaLv.Sidebar do
 
   slot(:inner_block, required: true)
 
+  @spec sidebar_footer(map()) :: Phoenix.LiveView.Rendered.t()
   def sidebar_footer(assigns) do
     ~H"""
     <div data-sidebar-part="footer" class={@class} {@rest}>
@@ -219,6 +224,7 @@ defmodule MaquinaLv.Sidebar do
 
   slot(:inner_block, required: true)
 
+  @spec sidebar_group(map()) :: Phoenix.LiveView.Rendered.t()
   def sidebar_group(assigns) do
     ~H"""
     <div data-sidebar-part="group" class={@class} {@rest}>
@@ -238,6 +244,7 @@ defmodule MaquinaLv.Sidebar do
 
   slot(:inner_block, required: true)
 
+  @spec sidebar_menu(map()) :: Phoenix.LiveView.Rendered.t()
   def sidebar_menu(assigns) do
     ~H"""
     <ul data-sidebar-part="menu" class={@class} {@rest}>
@@ -256,6 +263,7 @@ defmodule MaquinaLv.Sidebar do
 
   slot(:inner_block, required: true)
 
+  @spec sidebar_menu_item(map()) :: Phoenix.LiveView.Rendered.t()
   def sidebar_menu_item(assigns) do
     ~H"""
     <li data-sidebar-part="menu-item" class={@class} {@rest}>
@@ -286,6 +294,7 @@ defmodule MaquinaLv.Sidebar do
   attr(:class, :string, default: nil)
   attr(:rest, :global)
 
+  @spec sidebar_menu_button(map()) :: Phoenix.LiveView.Rendered.t()
   def sidebar_menu_button(assigns) do
     ~H"""
     <a
@@ -326,6 +335,7 @@ defmodule MaquinaLv.Sidebar do
   attr(:class, :string, default: nil)
   attr(:rest, :global)
 
+  @spec sidebar_menu_link(map()) :: Phoenix.LiveView.Rendered.t()
   def sidebar_menu_link(assigns) do
     ~H"""
     <a
@@ -361,6 +371,7 @@ defmodule MaquinaLv.Sidebar do
   attr(:class, :string, default: nil)
   attr(:rest, :global)
 
+  @spec sidebar_trigger(map()) :: Phoenix.LiveView.Rendered.t()
   def sidebar_trigger(assigns) do
     ~H"""
     <button
@@ -386,6 +397,7 @@ defmodule MaquinaLv.Sidebar do
 
   slot(:inner_block, required: true)
 
+  @spec sidebar_inset(map()) :: Phoenix.LiveView.Rendered.t()
   def sidebar_inset(assigns) do
     ~H"""
     <main data-sidebar-part="inset" class={@class} {@rest}>
@@ -407,6 +419,7 @@ defmodule MaquinaLv.Sidebar do
       sidebar_state(conn)
       sidebar_state(conn, "custom_cookie")
   """
+  @spec sidebar_state(Plug.Conn.t(), String.t()) :: :expanded | :collapsed
   def sidebar_state(conn, cookie_name \\ "sidebar_state") do
     case conn.cookies[cookie_name] do
       nil -> :expanded

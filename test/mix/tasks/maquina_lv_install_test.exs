@@ -1,6 +1,7 @@
 defmodule Mix.Tasks.MaquinaLv.InstallTest do
-  use ExUnit.Case, async: true
+  use ExUnit.Case, async: false
 
+  alias Mix.Tasks.MaquinaLv.Install
   import ExUnit.CaptureIO
 
   @css_import ~s|@import "../../deps/maquina_lv/assets/css/maquina_lv.css";|
@@ -34,7 +35,7 @@ defmodule Mix.Tasks.MaquinaLv.InstallTest do
 
   describe "CSS import injection" do
     test "injects CSS import after @import tailwindcss" do
-      capture_io(fn -> Mix.Tasks.MaquinaLv.Install.run(["--skip-theme", "--skip-js"]) end)
+      capture_io(fn -> Install.run(["--skip-theme", "--skip-js"]) end)
 
       content = File.read!("assets/css/app.css")
       assert content =~ @css_import
@@ -46,7 +47,7 @@ defmodule Mix.Tasks.MaquinaLv.InstallTest do
     test "injects CSS import with single-quoted tailwindcss" do
       File.write!("assets/css/app.css", "@import 'tailwindcss';\n")
 
-      capture_io(fn -> Mix.Tasks.MaquinaLv.Install.run(["--skip-theme", "--skip-js"]) end)
+      capture_io(fn -> Install.run(["--skip-theme", "--skip-js"]) end)
 
       content = File.read!("assets/css/app.css")
       assert content =~ @css_import
@@ -61,7 +62,7 @@ defmodule Mix.Tasks.MaquinaLv.InstallTest do
       """)
 
       output =
-        capture_io(fn -> Mix.Tasks.MaquinaLv.Install.run(["--skip-theme", "--skip-js"]) end)
+        capture_io(fn -> Install.run(["--skip-theme", "--skip-js"]) end)
 
       assert output =~ "already present"
 
@@ -81,7 +82,7 @@ defmodule Mix.Tasks.MaquinaLv.InstallTest do
       File.rm!("assets/css/app.css")
 
       output =
-        capture_io(fn -> Mix.Tasks.MaquinaLv.Install.run(["--skip-theme", "--skip-js"]) end)
+        capture_io(fn -> Install.run(["--skip-theme", "--skip-js"]) end)
 
       assert output =~ "not found"
     end
@@ -89,7 +90,7 @@ defmodule Mix.Tasks.MaquinaLv.InstallTest do
 
   describe "theme variables" do
     test "appends theme variables to CSS file" do
-      capture_io(fn -> Mix.Tasks.MaquinaLv.Install.run(["--skip-js"]) end)
+      capture_io(fn -> Install.run(["--skip-js"]) end)
 
       content = File.read!("assets/css/app.css")
       assert content =~ "--color-primary:"
@@ -99,7 +100,7 @@ defmodule Mix.Tasks.MaquinaLv.InstallTest do
     end
 
     test "skips theme variables with --skip-theme" do
-      capture_io(fn -> Mix.Tasks.MaquinaLv.Install.run(["--skip-theme", "--skip-js"]) end)
+      capture_io(fn -> Install.run(["--skip-theme", "--skip-js"]) end)
 
       content = File.read!("assets/css/app.css")
       refute content =~ "--color-primary:"
@@ -114,14 +115,14 @@ defmodule Mix.Tasks.MaquinaLv.InstallTest do
       }
       """)
 
-      output = capture_io(fn -> Mix.Tasks.MaquinaLv.Install.run(["--skip-js"]) end)
+      output = capture_io(fn -> Install.run(["--skip-js"]) end)
       assert output =~ "already present"
     end
   end
 
   describe "JS hooks import" do
     test "injects JS hooks import at the top" do
-      capture_io(fn -> Mix.Tasks.MaquinaLv.Install.run(["--skip-theme"]) end)
+      capture_io(fn -> Install.run(["--skip-theme"]) end)
 
       content = File.read!("assets/js/app.js")
       assert content =~ @js_import
@@ -129,7 +130,7 @@ defmodule Mix.Tasks.MaquinaLv.InstallTest do
     end
 
     test "skips JS import with --skip-js" do
-      capture_io(fn -> Mix.Tasks.MaquinaLv.Install.run(["--skip-theme", "--skip-js"]) end)
+      capture_io(fn -> Install.run(["--skip-theme", "--skip-js"]) end)
 
       content = File.read!("assets/js/app.js")
       refute content =~ @js_import
@@ -141,22 +142,22 @@ defmodule Mix.Tasks.MaquinaLv.InstallTest do
       import {Socket} from "phoenix"
       """)
 
-      output = capture_io(fn -> Mix.Tasks.MaquinaLv.Install.run(["--skip-theme"]) end)
+      output = capture_io(fn -> Install.run(["--skip-theme"]) end)
       assert output =~ "already present"
     end
 
     test "handles missing JS file gracefully" do
       File.rm!("assets/js/app.js")
 
-      output = capture_io(fn -> Mix.Tasks.MaquinaLv.Install.run(["--skip-theme"]) end)
+      output = capture_io(fn -> Install.run(["--skip-theme"]) end)
       assert output =~ "not found"
     end
   end
 
   describe "idempotency" do
     test "running twice does not duplicate imports" do
-      capture_io(fn -> Mix.Tasks.MaquinaLv.Install.run([]) end)
-      capture_io(fn -> Mix.Tasks.MaquinaLv.Install.run([]) end)
+      capture_io(fn -> Install.run([]) end)
+      capture_io(fn -> Install.run([]) end)
 
       css_content = File.read!("assets/css/app.css")
       js_content = File.read!("assets/js/app.js")

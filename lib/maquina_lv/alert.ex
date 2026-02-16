@@ -44,6 +44,7 @@ defmodule MaquinaLv.Alert do
 
   slot(:inner_block, required: true)
 
+  @spec alert(map()) :: Phoenix.LiveView.Rendered.t()
   def alert(assigns) do
     ~H"""
     <div
@@ -79,6 +80,7 @@ defmodule MaquinaLv.Alert do
 
   slot(:inner_block)
 
+  @spec alert_title(map()) :: Phoenix.LiveView.Rendered.t()
   def alert_title(assigns) do
     ~H"""
     <div data-alert-part="title" class={@class} {@rest}>
@@ -106,6 +108,7 @@ defmodule MaquinaLv.Alert do
 
   slot(:inner_block)
 
+  @spec alert_description(map()) :: Phoenix.LiveView.Rendered.t()
   def alert_description(assigns) do
     ~H"""
     <div data-alert-part="description" class={@class} {@rest}>

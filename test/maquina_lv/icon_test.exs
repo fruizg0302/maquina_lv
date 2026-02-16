@@ -295,6 +295,7 @@ defmodule MaquinaLv.IconTest do
   describe "icon/1 icon_provider fallback" do
     test "calls icon_provider module when icon is not found and provider is set" do
       defmodule TestIconProvider do
+        @spec icon_svg(atom()) :: String.t() | nil
         def icon_svg(:custom_icon) do
           ~s(<svg xmlns="http://www.w3.org/2000/svg" class=""><path d="M0 0"/></svg>)
         end
@@ -319,6 +320,7 @@ defmodule MaquinaLv.IconTest do
 
     test "renders nothing when provider returns nil" do
       defmodule NilIconProvider do
+        @spec icon_svg(atom()) :: nil
         def icon_svg(_), do: nil
       end
 

@@ -131,6 +131,18 @@ defmodule MaquinaLv.ToggleGroupTest do
 
       assert html =~ ~s(class="my-class")
     end
+
+    test "escapes special characters in selected values" do
+      assigns = %{}
+
+      html =
+        rendered_to_string(~H"""
+        <.toggle_group value={~s(val"ue)}>content</.toggle_group>
+        """)
+
+      assert html =~ ~s(data-selected)
+      refute html =~ ~s(data-selected="[&quot;val&quot;)
+    end
   end
 
   # ── toggle_group_item/1 ──────────────────────────────────────────────

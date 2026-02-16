@@ -41,6 +41,7 @@ defmodule MaquinaLv.Form do
 
   slot(:inner_block, required: true)
 
+  @spec form_group(map()) :: Phoenix.LiveView.Rendered.t()
   def form_group(assigns) do
     ~H"""
     <div
@@ -75,6 +76,7 @@ defmodule MaquinaLv.Form do
 
   slot(:inner_block, required: true)
 
+  @spec form_label(map()) :: Phoenix.LiveView.Rendered.t()
   def form_label(assigns) do
     ~H"""
     <label
@@ -108,6 +110,7 @@ defmodule MaquinaLv.Form do
 
   slot(:inner_block)
 
+  @spec form_description(map()) :: Phoenix.LiveView.Rendered.t()
   def form_description(assigns) do
     ~H"""
     <p data-form-part="description" class={@class} {@rest}>
@@ -135,6 +138,7 @@ defmodule MaquinaLv.Form do
 
   slot(:inner_block)
 
+  @spec form_error(map()) :: Phoenix.LiveView.Rendered.t()
   def form_error(assigns) do
     ~H"""
     <p data-form-part="error" class={@class} {@rest}>
@@ -163,6 +167,7 @@ defmodule MaquinaLv.Form do
 
   slot(:inner_block, required: true)
 
+  @spec form_actions(map()) :: Phoenix.LiveView.Rendered.t()
   def form_actions(assigns) do
     ~H"""
     <div

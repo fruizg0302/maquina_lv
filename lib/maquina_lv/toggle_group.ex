@@ -58,6 +58,7 @@ defmodule MaquinaLv.ToggleGroup do
 
   slot(:inner_block, required: true)
 
+  @spec toggle_group(map()) :: Phoenix.LiveView.Rendered.t()
   def toggle_group(assigns) do
     assigns =
       assign_new(assigns, :hook_id, fn ->
@@ -117,6 +118,7 @@ defmodule MaquinaLv.ToggleGroup do
 
   slot(:inner_block, required: true)
 
+  @spec toggle_group_item(map()) :: Phoenix.LiveView.Rendered.t()
   def toggle_group_item(assigns) do
     ~H"""
     <button
@@ -158,6 +160,7 @@ defmodule MaquinaLv.ToggleGroup do
   attr(:class, :string, default: nil)
   attr(:rest, :global)
 
+  @spec toggle_group_simple(map()) :: Phoenix.LiveView.Rendered.t()
   def toggle_group_simple(assigns) do
     selected_values = normalize_value(assigns.value)
     assigns = assign(assigns, :selected_values, selected_values)
@@ -195,7 +198,20 @@ defmodule MaquinaLv.ToggleGroup do
   defp normalize_value(value), do: [to_string(value)]
 
   defp encode_json_list(values) do
-    encoded = Enum.map_join(values, ",", &("\"" <> to_string(&1) <> "\""))
+    encoded =
+      Enum.map_join(values, ",", fn val ->
+        "\"" <> escape_json_string(to_string(val)) <> "\""
+      end)
+
     "[" <> encoded <> "]"
+  end
+
+  defp escape_json_string(str) do
+    str
+    |> String.replace("\\", "\\\\")
+    |> String.replace("\"", "\\\"")
+    |> String.replace("\n", "\\n")
+    |> String.replace("\r", "\\r")
+    |> String.replace("\t", "\\t")
   end
 end

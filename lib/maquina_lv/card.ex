@@ -51,6 +51,7 @@ defmodule MaquinaLv.Card do
 
   slot(:inner_block, required: true)
 
+  @spec card(map()) :: Phoenix.LiveView.Rendered.t()
   def card(assigns) do
     ~H"""
     <div data-component="card" class={@class} {@rest}>
@@ -79,6 +80,7 @@ defmodule MaquinaLv.Card do
 
   slot(:inner_block, required: true)
 
+  @spec card_header(map()) :: Phoenix.LiveView.Rendered.t()
   def card_header(assigns) do
     ~H"""
     <div
@@ -114,6 +116,7 @@ defmodule MaquinaLv.Card do
 
   slot(:inner_block)
 
+  @spec card_title(map()) :: Phoenix.LiveView.Rendered.t()
   def card_title(assigns) do
     ~H"""
     <h3
@@ -146,6 +149,7 @@ defmodule MaquinaLv.Card do
 
   slot(:inner_block)
 
+  @spec card_description(map()) :: Phoenix.LiveView.Rendered.t()
   def card_description(assigns) do
     ~H"""
     <p data-card-part="description" class={@class} {@rest}>
@@ -175,6 +179,7 @@ defmodule MaquinaLv.Card do
 
   slot(:inner_block, required: true)
 
+  @spec card_content(map()) :: Phoenix.LiveView.Rendered.t()
   def card_content(assigns) do
     ~H"""
     <div
@@ -212,6 +217,7 @@ defmodule MaquinaLv.Card do
 
   slot(:inner_block, required: true)
 
+  @spec card_footer(map()) :: Phoenix.LiveView.Rendered.t()
   def card_footer(assigns) do
     ~H"""
     <div
@@ -243,6 +249,7 @@ defmodule MaquinaLv.Card do
 
   slot(:inner_block, required: true)
 
+  @spec card_action(map()) :: Phoenix.LiveView.Rendered.t()
   def card_action(assigns) do
     ~H"""
     <div data-card-part="action" class={@class} {@rest}>

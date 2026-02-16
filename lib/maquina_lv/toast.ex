@@ -49,6 +49,7 @@ defmodule MaquinaLv.Toast do
 
   slot(:inner_block)
 
+  @spec toaster(map()) :: Phoenix.LiveView.Rendered.t()
   def toaster(assigns) do
     position_str = assigns.position |> to_string() |> String.replace("_", "-")
     assigns = assign(assigns, :position_str, position_str)
@@ -101,6 +102,7 @@ defmodule MaquinaLv.Toast do
 
   slot(:inner_block)
 
+  @spec toast(map()) :: Phoenix.LiveView.Rendered.t()
   def toast(assigns) do
     assigns =
       assign_new(assigns, :toast_id, fn ->
@@ -163,6 +165,7 @@ defmodule MaquinaLv.Toast do
 
   slot(:inner_block)
 
+  @spec toast_title(map()) :: Phoenix.LiveView.Rendered.t()
   def toast_title(assigns) do
     ~H"""
     <div data-toast-part="title" class={@class} {@rest}>
@@ -190,6 +193,7 @@ defmodule MaquinaLv.Toast do
 
   slot(:inner_block)
 
+  @spec toast_description(map()) :: Phoenix.LiveView.Rendered.t()
   def toast_description(assigns) do
     ~H"""
     <div data-toast-part="description" class={@class} {@rest}>
@@ -213,6 +217,7 @@ defmodule MaquinaLv.Toast do
   attr(:class, :string, default: nil)
   attr(:rest, :global)
 
+  @spec toast_action(map()) :: Phoenix.LiveView.Rendered.t()
   def toast_action(assigns) do
     ~H"""
     <%= if @href do %>
@@ -245,11 +250,13 @@ defmodule MaquinaLv.Toast do
     "warning" => :warning
   }
 
+  @spec flash_toasts(map()) :: Phoenix.LiveView.Rendered.t()
   def flash_toasts(assigns) do
     toasts =
       assigns.flash
-      |> Enum.reject(fn {key, _} -> key in assigns.exclude end)
-      |> Enum.reject(fn {_, val} -> is_nil(val) or val == "" end)
+      |> Enum.reject(fn {key, val} ->
+        key in assigns.exclude or is_nil(val) or val == ""
+      end)
       |> Enum.map(fn {key, message} ->
         variant = Map.get(@flash_variants, to_string(key), :default)
         %{variant: variant, title: message}

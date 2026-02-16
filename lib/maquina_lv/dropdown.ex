@@ -31,6 +31,7 @@ defmodule MaquinaLv.Dropdown do
 
   slot(:inner_block, required: true)
 
+  @spec dropdown(map()) :: Phoenix.LiveView.Rendered.t()
   def dropdown(assigns) do
     ~H"""
     <div

@@ -48,6 +48,7 @@ defmodule MaquinaLv.Badge do
 
   slot(:inner_block, required: true)
 
+  @spec badge(map()) :: Phoenix.LiveView.Rendered.t()
   def badge(assigns) do
     ~H"""
     <span

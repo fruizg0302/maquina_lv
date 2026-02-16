@@ -47,6 +47,7 @@ defmodule MaquinaLv.Empty do
 
   slot(:inner_block, required: true)
 
+  @spec empty(map()) :: Phoenix.LiveView.Rendered.t()
   def empty(assigns) do
     ~H"""
     <div
@@ -78,6 +79,7 @@ defmodule MaquinaLv.Empty do
 
   slot(:inner_block, required: true)
 
+  @spec empty_header(map()) :: Phoenix.LiveView.Rendered.t()
   def empty_header(assigns) do
     ~H"""
     <div data-empty-part="header" class={@class} {@rest}>
@@ -107,6 +109,7 @@ defmodule MaquinaLv.Empty do
 
   slot(:inner_block)
 
+  @spec empty_media(map()) :: Phoenix.LiveView.Rendered.t()
   def empty_media(assigns) do
     ~H"""
     <div data-empty-part="media" data-variant={@variant} class={@class} {@rest}>
@@ -138,6 +141,7 @@ defmodule MaquinaLv.Empty do
 
   slot(:inner_block)
 
+  @spec empty_title(map()) :: Phoenix.LiveView.Rendered.t()
   def empty_title(assigns) do
     ~H"""
     <h3 data-empty-part="title" class={@class} {@rest}>
@@ -165,6 +169,7 @@ defmodule MaquinaLv.Empty do
 
   slot(:inner_block)
 
+  @spec empty_description(map()) :: Phoenix.LiveView.Rendered.t()
   def empty_description(assigns) do
     ~H"""
     <p data-empty-part="description" class={@class} {@rest}>
@@ -190,6 +195,7 @@ defmodule MaquinaLv.Empty do
 
   slot(:inner_block, required: true)
 
+  @spec empty_content(map()) :: Phoenix.LiveView.Rendered.t()
   def empty_content(assigns) do
     ~H"""
     <div data-empty-part="content" class={@class} {@rest}>
@@ -211,6 +217,7 @@ defmodule MaquinaLv.Empty do
   attr(:reset_path, :string, default: nil)
   attr(:size, :atom, default: :default, values: [:default, :compact])
 
+  @spec empty_search_state(map()) :: Phoenix.LiveView.Rendered.t()
   def empty_search_state(assigns) do
     description =
       if assigns.query do
@@ -254,6 +261,7 @@ defmodule MaquinaLv.Empty do
   attr(:icon, :atom, default: :folder)
   attr(:size, :atom, default: :default, values: [:default, :compact])
 
+  @spec empty_list_state(map()) :: Phoenix.LiveView.Rendered.t()
   def empty_list_state(assigns) do
     assigns =
       assign(assigns,

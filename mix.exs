@@ -10,12 +10,26 @@ defmodule MaquinaLv.MixProject do
       version: @version,
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
+      elixirc_options: [warnings_as_errors: true],
       deps: deps(),
+      aliases: aliases(),
       description: description(),
       package: package(),
       source_url: @source_url,
       name: "Maquina LV",
-      docs: docs()
+      docs: docs(),
+      dialyzer: [
+        plt_file: {:no_warn, "priv/plts/dialyzer.plt"},
+        ignore_warnings: ".dialyzer_ignore.exs",
+        list_unused_filters: true,
+        flags: [
+          :unmatched_returns,
+          :error_handling,
+          :underspecs,
+          :extra_return,
+          :missing_return
+        ]
+      ]
     ]
   end
 
@@ -54,7 +68,29 @@ defmodule MaquinaLv.MixProject do
     [
       {:phoenix_live_view, "~> 1.0"},
       {:phoenix_html, "~> 4.0"},
-      {:ex_doc, "~> 0.34", only: :dev, runtime: false}
+      {:ex_doc, "~> 0.34", only: :dev, runtime: false},
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
+      {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false}
+    ]
+  end
+
+  defp aliases do
+    [
+      precommit: [
+        "compile --warnings-as-errors",
+        "format",
+        "credo --strict",
+        "test"
+      ],
+      quality: [
+        "compile --warnings-as-errors",
+        "deps.unlock --check-unused",
+        "format --check-formatted",
+        "credo --strict",
+        "cmd mix hex.audit",
+        "dialyzer",
+        "test"
+      ]
     ]
   end
 end

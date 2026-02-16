@@ -38,6 +38,7 @@ defmodule MaquinaLv.DropdownMenu do
 
   slot(:inner_block, required: true)
 
+  @spec dropdown_menu(map()) :: Phoenix.LiveView.Rendered.t()
   def dropdown_menu(assigns) do
     assigns =
       assign_new(assigns, :hook_id, fn ->
@@ -82,6 +83,7 @@ defmodule MaquinaLv.DropdownMenu do
 
   slot(:inner_block, required: true)
 
+  @spec dropdown_menu_trigger(map()) :: Phoenix.LiveView.Rendered.t()
   def dropdown_menu_trigger(assigns) do
     ~H"""
     <%= if @as_child do %>
@@ -127,6 +129,7 @@ defmodule MaquinaLv.DropdownMenu do
 
   slot(:inner_block, required: true)
 
+  @spec dropdown_menu_content(map()) :: Phoenix.LiveView.Rendered.t()
   def dropdown_menu_content(assigns) do
     ~H"""
     <div
@@ -172,6 +175,7 @@ defmodule MaquinaLv.DropdownMenu do
 
   slot(:inner_block, required: true)
 
+  @spec dropdown_menu_item(map()) :: Phoenix.LiveView.Rendered.t()
   def dropdown_menu_item(assigns) do
     ~H"""
     <%= if @href do %>
@@ -226,6 +230,7 @@ defmodule MaquinaLv.DropdownMenu do
 
   slot(:inner_block)
 
+  @spec dropdown_menu_label(map()) :: Phoenix.LiveView.Rendered.t()
   def dropdown_menu_label(assigns) do
     ~H"""
     <div
@@ -250,6 +255,7 @@ defmodule MaquinaLv.DropdownMenu do
   attr(:class, :string, default: nil)
   attr(:rest, :global)
 
+  @spec dropdown_menu_separator(map()) :: Phoenix.LiveView.Rendered.t()
   def dropdown_menu_separator(assigns) do
     ~H"""
     <div
@@ -279,6 +285,7 @@ defmodule MaquinaLv.DropdownMenu do
 
   slot(:inner_block, required: true)
 
+  @spec dropdown_menu_group(map()) :: Phoenix.LiveView.Rendered.t()
   def dropdown_menu_group(assigns) do
     ~H"""
     <div data-dropdown-menu-part="group" role="group" class={@class} {@rest}>
@@ -306,6 +313,7 @@ defmodule MaquinaLv.DropdownMenu do
 
   slot(:inner_block)
 
+  @spec dropdown_menu_shortcut(map()) :: Phoenix.LiveView.Rendered.t()
   def dropdown_menu_shortcut(assigns) do
     ~H"""
     <span data-dropdown-menu-part="shortcut" class={@class} {@rest}>

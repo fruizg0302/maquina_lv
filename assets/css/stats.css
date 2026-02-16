@@ -1,0 +1,27 @@
+/* ===== Stats Grid Component Styles ===== */
+/*
+ * Grid column layout for stats cards.
+ * Uses data-columns attribute instead of dynamic Tailwind classes.
+ */
+
+@media (min-width: 640px) {
+  [data-component="stats-grid"][data-columns="2"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  [data-component="stats-grid"][data-columns="3"] {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  [data-component="stats-grid"][data-columns="4"] {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  [data-component="stats-grid"][data-columns="5"] {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  [data-component="stats-grid"][data-columns="6"] {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
