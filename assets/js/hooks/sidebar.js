@@ -45,6 +45,17 @@ export const MaquinaSidebar = {
     this.updateStateImmediate()
   },
 
+  updated() {
+    this.sidebar = this.el.querySelector("[data-sidebar-part='root']")
+    this.backdrop = this.el.querySelector("[data-sidebar-part='backdrop']")
+
+    if (this.sidebar) {
+      this.sidebar.classList.remove("sidebar-loading")
+    }
+
+    this.updateState()
+  },
+
   destroyed() {
     window.removeEventListener("resize", this.handleResize)
     document.removeEventListener("keydown", this.handleKeydown)
